@@ -4,7 +4,7 @@ use zServices\Sintegra\Search;
 
 class testGetCaptcha extends PHPUnit_Framework_TestCase
 {
-    public function testGetCaptcha()
+    public function testGetCaptchaImage()
     {
     	$search = (new Search)->service('SP');
 
