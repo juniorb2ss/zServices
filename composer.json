@@ -15,12 +15,12 @@
         "php": ">=5.5.9",
         "ext-gd": "*",
         "fabpot/goutte": "^3.1",
-        "intervention/image": "^2.3"
+        "intervention/image": "^2.3",
+        "illuminate/support": "^5.2"
     },
     "autoload": {
         "psr-4": {
-            "zService\\ReceitaFederal\\": "src/zService/ReceitaFederal",
-            "zService\\Sintegra\\": "src/zService/Sintegra"
+            "zServices\\Sintegra\\": "src/Sintegra"
         }
     },
     "minimum-stability": "stable"

@@ -1,22 +1,22 @@
 <?php namespace zServices\Sintegra\Services\Sintegra\Interfaces;
 
-interface ServiceInterface {
+interface SearchInterface {
 
 	/**
 	 * [search description]
 	 * @return [type] [description]
 	 */
-	public function captcha();
+	public function getCaptcha();
 
 	/**
 	 * [cookie description]
 	 * @return [type] [description]
 	 */
-	public function cookie();
+	public function getCookie();
 
 	/**
-	 * [data description]
+	 * [params description]
 	 * @return [type] [description]
 	 */
-	public function data($document, $cookie, $captcha, array $params = []);
+	public function getParams();
 }
