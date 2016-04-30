@@ -9,8 +9,8 @@ use zServices\Sintegra\Services\Sintegra\SP\Crawler;
 class Search extends Crawler implements SearchInterface
 {
 	/**
-	 * [search description]
-	 * @return [type] [description]
+	 * Retorna o captcha do serviço para o usuário
+	 * @return string base64_image
 	 */
 	public function getCaptcha($configurations)
 	{ 
@@ -18,8 +18,9 @@ class Search extends Crawler implements SearchInterface
 	}
 
 	/**
-	 * [cookie description]
-	 * @return [type] [description]
+	 * Retorna o cookie da requisição para as
+	 * próximas requisições
+	 * @return string $cookie
 	 */
 	public function getCookie($configurations)
 	{ 
@@ -27,8 +28,13 @@ class Search extends Crawler implements SearchInterface
 	}
 
 	/**
-	 * [params description]
-	 * @return [type] [description]
+	 * Alguns serviços possuem outros parametros.
+	 * Como por exemplo o serviço de SP.
+	 * No formulário possui o input "parambot"
+	 * e nas requisições posteriores é preciso enviá-lo.
+	 *
+	 * Este método irá buscar no crawler estes parametros avulsos.
+	 * @return array $params
 	 */
 	public function getParams($configurations)
 	{ 
@@ -36,9 +42,12 @@ class Search extends Crawler implements SearchInterface
 	}
 
 	/**
-	 * [getData description]
-	 * @param  [type] $configurations [description]
-	 * @return [type]                 [description]
+	 * Retorna as informações da empresa/pessoa consultada.
+	 * @param  integer $document Documento de identificação da entidade
+	 * @param  string  $cookie   Referencia: $service->cookie()
+	 * @param  string  $captcha  Texto do captcha resolvido pelo usuário
+	 * @param  array   $params   Parametros avulsos de requisição. Referência $service->params()
+	 * @return array   $data     Informações da entidade no serviço.
 	 */
 	public function getData($document, $cookie, $captcha, $params)
 	{

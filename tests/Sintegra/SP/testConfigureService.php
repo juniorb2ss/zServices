@@ -1,7 +1,7 @@
 <?php
 
 use zServices\Sintegra\Search;
-use zServices\Sintegra\Services\Sintegra\SP\Service;
+use zServices\Sintegra\Services\Sintegra\SP\Service as ServiceExpected;
 use zServices\Sintegra\Services\Sintegra\Interfaces\ServiceInterface;
 
 class testService extends PHPUnit_Framework_TestCase
@@ -14,9 +14,22 @@ class testService extends PHPUnit_Framework_TestCase
 
     	$this->assertInstanceOf(ServiceInterface::class, $service);
 
-    	if (!is_a($service, Service::class)) {
-    		$this->assertNotTrue(true, 'Class returned invalid');
-    	}
+    	$this->assertNotTrue((!is_a($service, ServiceExpected::class)), 'Class returned invalid');
+
+        $this->assertTrue(
+                (is_array($service->configurations)
+                    && array_has($service->configurations, 'base')
+                    && array_has($service->configurations, 'home')
+                    && array_has($service->configurations, 'captcha')
+                    && array_has($service->configurations, 'data')
+                    && array_has($service->configurations, 'selectors')
+                    && array_has($service->configurations, 'selectors.image')
+                    && array_has($service->configurations, 'selectors.data')
+                    && array_has($service->configurations, 'headers')
+                    && array_has($service->configurations, 'headers')
+                ), 
+                'Configurations on this service is invalid'
+        );
     }
 
     /**

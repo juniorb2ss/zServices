@@ -12,14 +12,17 @@ class Service implements ServiceInterface
 	 * Armazena as URLs e selectors do serviço a ser consultado
 	 * @var array
 	 */
-	private $configurations = [
+	public $configurations = [
 		'base' 		=> 'http://pfeserv1.fazenda.sp.gov.br',
 		'home' 		=> 'http://pfeserv1.fazenda.sp.gov.br/sintegrapfe/consultaSintegraServlet',
 		'captcha' 	=> 'http://pfeserv1.fazenda.sp.gov.br/sintegrapfe/consultaSintegraServlet',
 		'data'		=> 'http://pfeserv1.fazenda.sp.gov.br/sintegrapfe/sintegra',
 		'selectors'	=> [
 			'image' 	=> 'body > center > table > tr > td > form > table > tr:nth-child(1) > td:nth-child(3) > img',
-			'paramBot' 	=> 'body > center > table > tr > td > form > input[type="hidden"]:nth-child(2)'
+			'paramBot' 	=> 'body > center > table > tr > td > form > input[type="hidden"]:nth-child(2)',
+			'data'		=> [
+
+			]
 		],
 		'headers' => [
 			'User-Agent' 		=> 'Mozilla/5.0 (Windows NT 6.1; rv:32.0) Gecko/20100101 Firefox/32.0',
@@ -43,9 +46,10 @@ class Service implements ServiceInterface
 	{
 		$this->search = new Search;
 	}
+
 	/**
-	 * [search description]
-	 * @return [type] [description]
+	 * Retorna o base64 da imagem do captcha
+	 * @return string base64_image
 	 */
 	public function captcha()
 	{
@@ -53,8 +57,8 @@ class Service implements ServiceInterface
 	}
 
 	/**
-	 * [cookie description]
-	 * @return [type] [description]
+	 * Cookie da requisição
+	 * @return string
 	 */
 	public function cookie()
 	{
@@ -62,8 +66,7 @@ class Service implements ServiceInterface
 	}
 
 	/**
-	 * [params description]
-	 * @return [type] [description]
+	 * @return array
 	 */
 	public function params()
 	{
@@ -71,8 +74,8 @@ class Service implements ServiceInterface
 	}
 
 	/**
-	 * [data description]
-	 * @return [type] [description]
+	 * Informações da entidade no serviço
+	 * @return array
 	 */
 	public function data($document, $cookie, $captcha, array $params = [])
 	{
