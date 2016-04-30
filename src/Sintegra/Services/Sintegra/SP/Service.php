@@ -8,6 +8,27 @@ use zServices\Sintegra\Services\Sintegra\SP\Search;
 */
 class Service implements ServiceInterface
 {
+	/**
+	 * Armazena as URLs e selectors do serviço a ser consultado
+	 * @var array
+	 */
+	private $configurations = [
+		'base' 		=> 'http://pfeserv1.fazenda.sp.gov.br',
+		'home' 		=> 'http://pfeserv1.fazenda.sp.gov.br/sintegrapfe/consultaSintegraServlet',
+		'captcha' 	=> 'http://pfeserv1.fazenda.sp.gov.br/sintegrapfe/consultaSintegraServlet',
+		'data'		=> 'http://pfeserv1.fazenda.sp.gov.br/sintegrapfe/sintegra',
+		'selectors'	=> [
+			'image' 	=> 'body > center > table > tr > td > form > table > tr:nth-child(1) > td:nth-child(3) > img',
+			'paramBot' 	=> 'body > center > table > tr > td > form > input[type="hidden"]:nth-child(2)'
+		],
+		'headers' => [
+			'User-Agent' 		=> 'Mozilla/5.0 (Windows NT 6.1; rv:32.0) Gecko/20100101 Firefox/32.0',
+			'Accept' 			=> 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+			'Accept-Language' 	=> 'pt-BR,pt;q=0.8,en-US;q=0.5,en;q=0.3',
+			'Accept-Encoding'	=> 'gzip, deflate',
+			'Host'				=> 'http://pfeserv1.fazenda.sp.gov.br'
+		]
+	];
 
 	/**
 	 * [$search description]
@@ -26,7 +47,8 @@ class Service implements ServiceInterface
 	 * [search description]
 	 * @return [type] [description]
 	 */
-	public function captcha(){
+	public function captcha()
+	{
 		return 'captcha';
 	}
 
@@ -34,7 +56,8 @@ class Service implements ServiceInterface
 	 * [cookie description]
 	 * @return [type] [description]
 	 */
-	public function cookie(){
+	public function cookie()
+	{
 		return 'cookie';
 	}
 
