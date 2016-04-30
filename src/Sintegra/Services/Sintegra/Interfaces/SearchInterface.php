@@ -6,17 +6,24 @@ interface SearchInterface {
 	 * [search description]
 	 * @return [type] [description]
 	 */
-	public function getCaptcha();
+	public function getCaptcha($configurations);
 
 	/**
 	 * [cookie description]
 	 * @return [type] [description]
 	 */
-	public function getCookie();
+	public function getCookie($configurations);
 
 	/**
 	 * [params description]
 	 * @return [type] [description]
 	 */
-	public function getParams();
+	public function getParams($configurations);
+
+	/**
+	 * [getData description]
+	 * @param  [type] $configurations [description]
+	 * @return [type]                 [description]
+	 */
+	public function getData($document, $cookie, $captcha, $params);
 }

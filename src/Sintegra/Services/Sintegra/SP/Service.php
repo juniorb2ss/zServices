@@ -49,7 +49,7 @@ class Service implements ServiceInterface
 	 */
 	public function captcha()
 	{
-		return 'captcha';
+		return $this->search->getCaptcha($this->configurations);
 	}
 
 	/**
@@ -58,7 +58,16 @@ class Service implements ServiceInterface
 	 */
 	public function cookie()
 	{
-		return 'cookie';
+		return $this->search->getCookie($this->configurations);
+	}
+
+	/**
+	 * [params description]
+	 * @return [type] [description]
+	 */
+	public function params()
+	{
+		return $this->search->getParams($this->configurations);
 	}
 
 	/**
@@ -67,6 +76,6 @@ class Service implements ServiceInterface
 	 */
 	public function data($document, $cookie, $captcha, array $params = [])
 	{
-		# code...
+		return $this->search->getData($document, $cookie, $captcha, $params);
 	}
 }

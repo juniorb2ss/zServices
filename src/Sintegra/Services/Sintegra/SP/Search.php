@@ -12,17 +12,36 @@ class Search extends Crawler implements SearchInterface
 	 * [search description]
 	 * @return [type] [description]
 	 */
-	public function getCaptcha(){ }
+	public function getCaptcha($configurations)
+	{ 
+		return 'captcha';
+	}
 
 	/**
 	 * [cookie description]
 	 * @return [type] [description]
 	 */
-	public function getCookie(){ }
+	public function getCookie($configurations)
+	{ 
+		return 'cookie';
+	}
 
 	/**
 	 * [params description]
 	 * @return [type] [description]
 	 */
-	public function getParams(){ }
+	public function getParams($configurations)
+	{ 
+		return [];
+	}
+
+	/**
+	 * [getData description]
+	 * @param  [type] $configurations [description]
+	 * @return [type]                 [description]
+	 */
+	public function getData($document, $cookie, $captcha, $params)
+	{
+		return [];
+	}
 }
