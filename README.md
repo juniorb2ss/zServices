@@ -38,7 +38,7 @@ $paramBot = $params['parambot']; // captura parambot
 // Requisitar dados
 use zServices\Sintegra\Search as Sintegra;
 
-$search = (new Sintegra)->service('SP')->request(); // initialize
+$search = (new Sintegra)->service('SP');
 $crawler = $search->data($cnpj, $cookie, $captcha, $paramBot);
 $arrayData = $crawler->scraping(); // array com as informações da entidade
 ```
