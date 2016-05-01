@@ -6,7 +6,7 @@ class testGetParams extends PHPUnit_Framework_TestCase
 {
     public function testGetParamsArray()
     {
-    	$search = (new Search)->service('SP');
+    	$search = (new Search)->service('SP')->request();
 
     	$paramsRequest = $search->params();
     	

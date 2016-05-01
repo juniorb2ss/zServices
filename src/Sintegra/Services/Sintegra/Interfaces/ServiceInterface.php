@@ -3,6 +3,12 @@
 interface ServiceInterface {
 
 	/**
+	 * [request description]
+	 * @return [type] [description]
+	 */
+	public function request();
+
+	/**
 	 * [search description]
 	 * @return [type] [description]
 	 */

@@ -10,7 +10,7 @@ class testService extends PHPUnit_Framework_TestCase
     {
     	$search = new Search;
 
-    	$service = $search->service('SP');
+    	$service = $search->service('SP')->request();
 
     	$this->assertInstanceOf(ServiceInterface::class, $service);
 

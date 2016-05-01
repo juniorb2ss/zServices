@@ -6,7 +6,7 @@ class testGetCaptcha extends PHPUnit_Framework_TestCase
 {
     public function testGetCaptchaImage()
     {
-    	$search = (new Search)->service('SP');
+    	$search = (new Search)->service('SP')->request();
 
     	$captchaRequest = $search->captcha();
 
