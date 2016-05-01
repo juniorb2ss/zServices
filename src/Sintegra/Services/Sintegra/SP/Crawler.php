@@ -3,7 +3,7 @@
 use zServices\Sintegra\Services\Sintegra\Interfaces\CrawlerInterface;
 use Symfony\Component\DomCrawler\Crawler as BaseCrawler;
 use zServices\Sintegra\Exceptions\NoSelectorsConfigured;
-use zServices\Sintegra\Exceptions\InvalidCaptcha;
+use zServices\Sintegra\Exceptions\ErrorFoundData;
 
 /**
 * 
@@ -36,11 +36,11 @@ class Crawler extends BaseCrawler implements CrawlerInterface
      */
     public function hasError()
     {
-        $node = $this->scrap($this->selectors['error']);
+        $node = $this->scrap($this->selectors['razao_social']);
 
-        if($node->count() && starts_with('O valor da imagem', $node->text()))
+        if(!$node->count())
         {
-            throw new InvalidCaptcha("Captcha response invalid", 1);
+            throw new ErrorFoundData($this->clearString($this->scrap($this->selectors['error'])->text()), 1);
         }
     }
 

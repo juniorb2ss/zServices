@@ -2,4 +2,4 @@
 
 use Exception;
 
-class InvalidCaptcha extends Exception { }
+class ErrorFoundData extends Exception { }
