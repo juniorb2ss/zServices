@@ -6,6 +6,9 @@ use zServices\Sintegra\Services\Sintegra\Interfaces\ServiceInterface;
 
 class testService extends PHPUnit_Framework_TestCase
 {
+    /**
+     * @group service
+     */
 	public function testServiceExist()
     {
     	$search = new Search;
@@ -33,6 +36,7 @@ class testService extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @group service
      * @expectedException zServices\Sintegra\Exceptions\InvalidService
      * @expectedExceptionMessageRegExp #Portal.*#
      */

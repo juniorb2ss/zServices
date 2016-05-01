@@ -4,6 +4,9 @@ use zServices\Sintegra\Search;
 
 class testGetParams extends PHPUnit_Framework_TestCase
 {
+    /**
+     * @group request
+     */
     public function testGetParamsArray()
     {
     	$search = (new Search)->service('SP')->request();

@@ -26,6 +26,8 @@ $ composer require zservices/query 1.*
 Em breve
 #### Sintegra SP
 
+Dados para form
+
 ```php
 use zServices\Sintegra\Search as Sintegra;
 $search = (new Sintegra)->service('SP')->request(); // initialize
@@ -35,12 +37,17 @@ $cookieRequest = $search->cookie(); // captura o cookie do request iniciado
 $params = $search->params(); // captura o valor dos inputs
 $paramBot = $params['parambot']; // captura parambot
 
+```
+
+Dados após o form
+```php
 // Requisitar dados
 use zServices\Sintegra\Search as Sintegra;
 
 $search = (new Sintegra)->service('SP');
 $crawler = $search->data($cnpj, $cookie, $captcha, $paramBot);
 $arrayData = $crawler->scraping(); // array com as informações da entidade
+
 ```
 O portal do sintega de SP além do captcha possui um valor no formulário com nome de `paramBot`. Este valor é único por requisição, não por cookie. Então para que a requisição funcione corretamente é preciso pegar e devolver ele nas requisições posteriores.
 

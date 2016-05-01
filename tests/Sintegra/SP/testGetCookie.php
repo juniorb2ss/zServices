@@ -4,6 +4,9 @@ use zServices\Sintegra\Search;
 
 class testGetCookie extends PHPUnit_Framework_TestCase
 {
+	/**
+     * @group request
+     */
     public function testGetCookieString()
     {
     	$search = (new Search)->service('SP')->request();
