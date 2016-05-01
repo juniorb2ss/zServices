@@ -3,6 +3,7 @@
 use zServices\Sintegra\Services\Sintegra\Interfaces\CrawlerInterface;
 use Symfony\Component\DomCrawler\Crawler as BaseCrawler;
 use zServices\Sintegra\Exceptions\NoSelectorsConfigured;
+use zServices\Sintegra\Exceptions\InvalidCaptcha;
 
 /**
 * 
@@ -27,6 +28,22 @@ class Crawler extends BaseCrawler implements CrawlerInterface
 
         parent::__construct($html);
     }
+
+    /**
+     * Verifica antes de fazer o crawler se possui erros
+     * na requisição
+     * @return boolean 
+     */
+    public function hasError()
+    {
+        $node = $this->scrap($this->selectors['error']);
+
+        if($node->count() && starts_with('O valor da imagem', $node->text()))
+        {
+            throw new InvalidCaptcha("Captcha response invalid", 1);
+        }
+    }
+
     /**
      * Extrai informações do HTML através do DOM
      *
@@ -35,6 +52,8 @@ class Crawler extends BaseCrawler implements CrawlerInterface
     public function scraping()
     {
         $scrapped = [];
+
+        $this->hasError();
 
         if(!count($this->selectors)) {
             throw new NoSelectorsConfigured("NoSelectorsConfigured", 1);

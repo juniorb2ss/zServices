@@ -19,8 +19,9 @@ class Service implements ServiceInterface
 		'data'		=> 'http://pfeserv1.fazenda.sp.gov.br/sintegrapfe/sintegra',
 		'selectors'	=> [
 			'image' 	=> 'body > center > table > tr > td > form > table > tbody > tr:nth-child(1) > td:nth-child(3) > img',
-			'paramBot' 	=> 'body > center > table > tr > td > form > input[type="hidden"]:nth-child(2)',
+			'paramBot' 	=> 'body > center > table > tr > td > form > input[type="hidden"]:nth-child(2)',			
 			'data'		=> [
+				'error' => 'body > center:nth-child(8) > table > tr > td > font > b',
 				'inscricao_estadual'  => 'body > center:nth-child(9) > table > tr > td:nth-child(4) > font',
 		        'razao_social' => 'body > center:nth-child(10) > table > tr > td:nth-child(2) > font',
 		        'logradouro' => 'body > center:nth-child(13) > table > tr > td:nth-child(2) > font',
