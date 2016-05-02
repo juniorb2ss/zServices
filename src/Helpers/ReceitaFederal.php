@@ -18,7 +18,7 @@ if (!function_exists('receitafederal'))
 		$search = (new \zServices\ReceitaFederal\Search)->service();
 
 		// Esta pesquisando por um documento?
-		if($document && $cookie && captcha) {
+		if($document && $cookie && $captcha) {
 			$crawler = $search->data($document, $cookie, $captcha, $params);
 
 			return $crawler->scraping();

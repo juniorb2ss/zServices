@@ -18,7 +18,7 @@ if (!function_exists('sintegra'))
 		$search = (new \zServices\Sintegra\Search)->service($portal);
 
 		// Esta pesquisando por um documento?
-		if($document && $cookie && captcha && $params) {
+		if($document && $cookie && $captcha && $params) {
 			$crawler = $search->data($document, $cookie, $captcha, $params);
 
 			return $crawler->scraping();
