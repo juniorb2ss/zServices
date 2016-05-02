@@ -9,7 +9,7 @@ if (!function_exists('receitafederal'))
 	 * @param  string $captcha  Captcha resolvido
 	 * @return array
 	 */
-	function receitaFederal($document = false, $cookie = false, $captcha = false, $params = [])
+	function receitaFederal($document = false, $cookie = false, $captcha = false)
 	{	
 		/**
 		 * Inicia a classe
@@ -20,8 +20,8 @@ if (!function_exists('receitafederal'))
 		/**
 		 * @var array data
 		 */
-		if ($document !== false && $cookie !== false && $captcha !== false) {
-			$crawler = $search->data($document, $cookie, $captcha, $params);
+		if ($document == true && $cookie == true && $captcha == true) {
+			$crawler = $search->data($document, $cookie, $captcha, []);
 
 			return $crawler->scraping();
 		}

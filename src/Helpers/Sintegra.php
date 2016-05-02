@@ -20,7 +20,7 @@ if (!function_exists('sintegra'))
 		/**
 		 * @var array data
 		 */
-		if ($document !== false && $cookie !== false && $captcha !== false && $params !== false) {
+		if ($document == true && $cookie == true && $captcha == true && $params == true) {
 			$crawler = $search->data($document, $cookie, $captcha, $params);
 
 			return $crawler->scraping();
