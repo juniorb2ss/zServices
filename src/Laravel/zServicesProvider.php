@@ -20,11 +20,11 @@ class zServicesProvider extends ServiceProvider {
    */
   public function register()
   {
-    $this->registerSintegra();
-    $this->registerReceitaFederal();
+	$this->registerSintegra();
+	$this->registerReceitaFederal();
 
-    $this->app->alias('Sintegra', 'zServices\Sintegra\Search');
-    $this->app->alias('ReceitaFederal', 'zServices\ReceitaFederal\Search');
+	$this->app->alias('Sintegra', 'zServices\Sintegra\Search');
+	$this->app->alias('ReceitaFederal', 'zServices\ReceitaFederal\Search');
   }
 
   /**
@@ -34,9 +34,9 @@ class zServicesProvider extends ServiceProvider {
    */
   protected function registerReceitaFederal()
   {
-    $this->app->bind('ReceitaFederal', function(){
-        return new RFSearch;
-    });
+	$this->app->bind('ReceitaFederal', function(){
+		return new RFSearch;
+	});
   }
 
   /**
@@ -46,8 +46,8 @@ class zServicesProvider extends ServiceProvider {
    */
   protected function registerSintegra()
   {
-    $this->app->bind('Sintegra', function(){
-        return new Search;
-    });
+	$this->app->bind('Sintegra', function(){
+		return new Search;
+	});
   }
 }
