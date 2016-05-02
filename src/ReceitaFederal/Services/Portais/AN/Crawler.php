@@ -3,6 +3,7 @@
 use zServices\Miscellany\Interfaces\CrawlerInterface;
 use Symfony\Component\DomCrawler\Crawler as BaseCrawler;
 use zServices\Miscellany\Exceptions\NoSelectorsConfigured;
+use zServices\Miscellany\Exceptions\InvalidCaptcha;
 use zServices\Miscellany\Exceptions\ErrorFoundData;
 
 /**

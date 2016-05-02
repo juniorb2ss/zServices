@@ -204,6 +204,8 @@ class Search implements SearchInterface
             'search_type' => 'cnpj'
         ];
 
+        $postParams = array_merge($postParams, $params);
+
         // inicia o cURL
         $curl = new Curl;
 
