@@ -9,7 +9,7 @@ if (!function_exists('sintegra'))
 	 * @param  array $params   
 	 * @return array
 	 */
-	function sintegra($portal = 'SP', $document = null, $cookie = null, $captcha = null, $params = null )
+	function sintegra($portal = 'SP', $document = false, $cookie = false, $captcha = false, $params = false )
 	{	
 		/**
 		 * Inicia a classe
@@ -17,7 +17,9 @@ if (!function_exists('sintegra'))
 		 */
 		$search = (new \zServices\Sintegra\Search)->service($portal);
 
-		// Esta pesquisando por um documento?
+		/**
+		 * @var array data
+		 */
 		if($document && $cookie && $captcha && $params) {
 			$crawler = $search->data($document, $cookie, $captcha, $params);
 

@@ -9,7 +9,7 @@ if (!function_exists('receitafederal'))
 	 * @param  string $captcha  Captcha resolvido
 	 * @return array
 	 */
-	function receitaFederal($document = null, $cookie = null, $captcha = null, $params = [])
+	function receitaFederal($document = false, $cookie = false, $captcha = false, $params = [])
 	{	
 		/**
 		 * Inicia a classe
@@ -17,7 +17,9 @@ if (!function_exists('receitafederal'))
 		 */
 		$search = (new \zServices\ReceitaFederal\Search)->service();
 
-		// Esta pesquisando por um documento?
+		/**
+		 * @var array data
+		 */
 		if($document && $cookie && $captcha) {
 			$crawler = $search->data($document, $cookie, $captcha, $params);
 
