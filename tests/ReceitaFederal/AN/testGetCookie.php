@@ -9,7 +9,7 @@ class testGetCookie extends \PHPUnit_Framework_TestCase
      */
     public function testGetCookieString()
     {
-    	$search = (new Search)->service('SP')->request();
+    	$search = (new Search)->service()->request();
 
     	$cookieRequest = $search->cookie();
 

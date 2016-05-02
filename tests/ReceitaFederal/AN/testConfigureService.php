@@ -13,7 +13,7 @@ class testService extends \PHPUnit_Framework_TestCase
     {
     	$search = new Search;
 
-    	$service = $search->service('SP')->request();
+    	$service = $search->service()->request();
 
     	$this->assertInstanceOf(ServiceInterface::class, $service);
 

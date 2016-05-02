@@ -1,5 +1,9 @@
 # zServices
 
+[![Latest Stable Version](https://poser.pugx.org/zservices/query/v/stable)](https://packagist.org/packages/zservices/query) [![Total Downloads](https://poser.pugx.org/zservices/query/downloads)](https://packagist.org/packages/zservices/query) [![Latest Unstable Version](https://poser.pugx.org/zservices/query/v/unstable)](https://packagist.org/packages/zservices/query) [![License](https://poser.pugx.org/zservices/query/license)](https://packagist.org/packages/zservices/query)
+[![Build Status](https://travis-ci.org/juniorb2ss/zservices.svg?branch=master)](https://travis-ci.org/juniorb2ss/zservices)
+[![Dependencies Status](https://depending.in/juniorb2ss/zServices.png)](http://depending.in/juniorb2ss/zServices)
+
 Pacote para buscar informações nos serviços federais e estaduais do Brasil
 
 É feito uma requisição no serviço, retornando `cookie` e `captcha` do serviço. Após usuário informar

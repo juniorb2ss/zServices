@@ -9,7 +9,7 @@ class testGetCaptcha extends \PHPUnit_Framework_TestCase
      */
     public function testGetCaptchaImage()
     {
-    	$search = (new Search)->service('SP')->request();
+    	$search = (new Search)->service()->request();
 
     	$captchaRequest = $search->captcha();
 
