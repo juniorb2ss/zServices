@@ -2,7 +2,7 @@
 
 [![Latest Stable Version](https://poser.pugx.org/zservices/query/v/stable)](https://packagist.org/packages/zservices/query) [![Total Downloads](https://poser.pugx.org/zservices/query/downloads)](https://packagist.org/packages/zservices/query) [![Latest Unstable Version](https://poser.pugx.org/zservices/query/v/unstable)](https://packagist.org/packages/zservices/query) [![License](https://poser.pugx.org/zservices/query/license)](https://packagist.org/packages/zservices/query)
 [![Build Status](https://api.travis-ci.org/juniorb2ss/zServices.svg?branch=master)](https://travis-ci.org/juniorb2ss/zServices)
-[![Dependencies Status](https://depending.in/juniorb2ss/zServices.png)](http://depending.in/juniorb2ss/zServices)
+[![Dependency Status](https://gemnasium.com/badges/github.com/juniorb2ss/zServices.svg)](https://gemnasium.com/github.com/juniorb2ss/zServices)
 [![Issues Status](https://img.shields.io/github/issues/juniorb2ss/zServices.svg)](https://github.com/juniorb2ss/zServices/issues)
 [![Stars Status](https://img.shields.io/github/stars/juniorb2ss/zServices.svg)](https://github.com/juniorb2ss/zServices/stargazers)
 

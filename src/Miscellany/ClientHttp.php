@@ -27,6 +27,12 @@ class ClientHttp extends BaseClient
     protected $cookie;
 
     /**
+     * [$response description]
+     * @var [type]
+     */
+    protected $response;
+
+    /**
      * [request description]
      * @param  string  $method        [description]
      * @param  string  $url           [description]
@@ -46,16 +52,9 @@ class ClientHttp extends BaseClient
     }
 
     /**
-     * [response description]
+     * [headers description]
      * @return [type] [description]
      */
-    private function response()
-    {
-        $this->response = parent::getResponse();
-
-        return $this->response;
-    }
-
     private function headers()
     {
         return $this->response->getHeaders();
