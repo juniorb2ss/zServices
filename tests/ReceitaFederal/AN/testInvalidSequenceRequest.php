@@ -1,4 +1,4 @@
-<?php namespace tests\Sintegra\SP;
+<?php namespace tests\ReceitaFederal\AN;
 
 use zServices\Sintegra\Search;
 
@@ -8,7 +8,7 @@ class testInvalidSequenceRequest extends \PHPUnit_Framework_TestCase
      * Testa a sequência de request da classe
      * @expectedException zServices\Miscellany\Exceptions\NoServiceCall
      * @expectedExceptionMessageRegExp #No request.*#
-     * @group sintegra-request
+     * @group receita-request
      */
     public function testService()
     {

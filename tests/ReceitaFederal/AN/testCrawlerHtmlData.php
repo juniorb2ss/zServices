@@ -1,13 +1,13 @@
-<?php namespace tests\Sintegra\SP;
+<?php namespace tests\ReceitaFederal\AN;
 
-use zServices\Sintegra\Search;
-use zServices\Sintegra\Services\Portais\SP\Crawler;
-use zServices\Sintegra\Services\Portais\SP\Service;
+use zServices\ReceitaFederal\Search;
+use zServices\ReceitaFederal\Services\Portais\AN\Crawler;
+use zServices\ReceitaFederal\Services\Portais\AN\Service;
 
 class testCrawlerHtmlData extends \PHPUnit_Framework_TestCase
 {   
     /**
-     * @group sintegra-crawler
+     * @group receita-crawler
      */
 	public function testFileExist()
     {
@@ -19,7 +19,7 @@ class testCrawlerHtmlData extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @group sintegra-crawler
+     * @group receita-crawler
      * @depends testFileExist
      */
     public function testCrawlerHtmlBody($html)
@@ -35,8 +35,8 @@ class testCrawlerHtmlData extends \PHPUnit_Framework_TestCase
                 'Params returned not is valid array'
         );
 
-        $this->assertArrayHasKey('inscricao_estadual', $scraped, 'Scraped fail');
+        $this->assertArrayHasKey('numero_inscricao', $scraped, 'Scraped fail');
 
-        $this->assertEquals('647.356.837.114', array_get($scraped, 'inscricao_estadual'), 'Scraped fail');
+        $this->assertEquals('14.050.180/0001-20', array_get($scraped, 'numero_inscricao'), 'Scraped fail');
     }
 }

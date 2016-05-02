@@ -1,4 +1,4 @@
-<?php namespace zServices\Sintegra\Services\Portais\SP;
+<?php namespace zServices\ReceitaFederal\Services\Portais\AN;
 
 use zServices\Miscellany\Interfaces\CrawlerInterface;
 use Symfony\Component\DomCrawler\Crawler as BaseCrawler;
@@ -36,11 +36,17 @@ class Crawler extends BaseCrawler implements CrawlerInterface
      */
     public function hasError()
     {
-        $node = $this->scrap($this->selectors['razao_social']);
+        // verifica se a página seguida na requisição 
+        // é página de erro da receita federal
+        $node = $this->filter($this->selectors['error']);
 
-        if(!$node->count())
-        {
-            throw new ErrorFoundData($this->clearString($this->scrap($this->selectors['error'])->text()), 1);
+        if($node->count()){
+             throw new ErrorFoundData( $this->clearString($node->text()), 1);
+        }
+
+        // CNPJ informado é válido?
+        if($this->filter('#imgCaptcha')->count()){
+            throw new InvalidCaptcha('Captcha inválido', 99);
         }
     }
 

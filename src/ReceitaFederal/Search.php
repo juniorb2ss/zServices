@@ -1,21 +1,14 @@
-<?php namespace zServices\Sintegra;
+<?php namespace zServices\ReceitaFederal;
 
 use zServices\Miscellany\Exceptions\InvalidService;
 use zServices\Miscellany\Interfaces\ServiceInterface;
+use zServices\ReceitaFederal\Services\Portais\AN\Service;
 
 /**
 * Providencias os serviços e configurações
 */
 class Search
 {
-	/**
-	 * [$services description]
-	 * @var [type]
-	 */
-	private $services = [
-		'SP' => \zServices\Sintegra\Services\Portais\SP\Service::class,
-	];
-
 	/**
 	 * [$service description]
 	 * @var [type]
@@ -26,14 +19,12 @@ class Search
 	 * [service description]
 	 * @return [type] [description]
 	 */
-	public function service($service)
+	public function service()
 	{
-		if(array_key_exists($service, $this->services) && class_exists($this->services[$service])){
-			$service = new $this->services[$service];
+		$service = new Service;
 
-			if($service instanceof ServiceInterface){
-				return $this->service = $service;
-			}
+		if($service instanceof ServiceInterface){
+			return $this->service = $service;
 		}
 
 		throw new InvalidService("Portal $service invalid", 1);

@@ -1,11 +1,13 @@
-<?php namespace zServices\Sintegra\Services\Portais\SP;
+<?php namespace zServices\ReceitaFederal\Services\Portais\AN;
 
 use zServices\Miscellany\Interfaces\SearchInterface;
-use zServices\Sintegra\Services\Portais\SP\Crawler;
+use zServices\ReceitaFederal\Services\Portais\AN\Crawler;
 use zServices\Miscellany\Exceptions\NoServiceCall;
 use zServices\Miscellany\Exceptions\NoCaptchaResponse;
 use zServices\Miscellany\Exceptions\NoServiceResponse;
 use zServices\Miscellany\Exceptions\ImageNotFound;
+use zServices\Miscellany\Exceptions\InvalidInputs;
+use zServices\Miscellany\Exceptions\InvalidCaptcha;
 use zServices\Miscellany\ClientHttp;
 use zServices\Miscellany\Curl;
 
@@ -101,22 +103,6 @@ class Search implements SearchInterface
 	{ 
 		$this->hasRequested();
 
-		$imageSrc = $this->instanceResponse->filter(
-						array_get($this->configurations, 'selectors.image')
-					);
-
-		if(!$imageSrc->count()){
-			throw new ImageNotFound("Impossible to crawler image from response", 1);
-		}
-
-        $paramBot = $this->instanceResponse->filter(
-        				array_get($this->configurations, 'selectors.paramBot')
-        			);
-
-        if(!$paramBot->count()){
-			throw new ImageNotFound("Impossible to crawler parambot from response", 1);
-		}
-
 		// Inicia instancia do cURL
         $curl = new Curl;
 
@@ -125,9 +111,7 @@ class Search implements SearchInterface
         //
         // to-do: implementar guzzlehttp?
         // ele é melhor que o curl? ou mais organizado?
-        $curl->init($this->configurations['base'] . $imageSrc->attr('src'));
-
-        $this->params['parambot'] = trim($paramBot->attr('value'));
+        $curl->init($this->configurations['captcha']);
 
         // headers da requisição
         $curl->options([
@@ -140,7 +124,7 @@ class Search implements SearchInterface
                             "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
                             "Accept-Language: pt-BR,pt;q=0.8,en-US;q=0.5,en;q=0.3",
                             "Accept-Encoding: gzip, deflate",
-                            "Referer: " . $this->configurations['captcha'],
+                            "Referer: " . $this->configurations['home'],
                             "Cookie: flag=1; ". $this->cookie,
                             "Connection: keep-alive"
                         ),
@@ -213,13 +197,11 @@ class Search implements SearchInterface
 	{
 		// prepara o form
         $postParams = [
+            'origem' => 'comprovante',
             'cnpj' => $document, // apenas números
-            'Key' => $captcha,
-            'botao' => 'Consulta por CNPJ',
-            'hidFlag' => '1',
-            'ie' => '',
-            'servico' => 'cnpj',
-            'paramBot' => $params['parambot']
+            'txtTexto_captcha_serpro_gov_br' => $captcha,
+            'submit1' => 'Consultar',
+            'search_type' => 'cnpj'
         ];
 
         // inicia o cURL
@@ -231,14 +213,15 @@ class Search implements SearchInterface
         // define os headers para requisição curl.
         $curl->options(
             array(
-                CURLOPT_HTTPHEADER => array(
-                    "Origin: http://pfeserv1.fazenda.sp.gov.br",
-                    "Host: pfeserv1.fazenda.sp.gov.br",
-                    "User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/49.0.2623.108 Chrome/49.0.2623.108 Safari/537.36",
-                    "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
-                    "Accept-Language: pt-BR,pt;q=0.8,en-US;q=0.6,en;q=0.4,es;q=0.2",
+            	 CURLOPT_HTTPHEADER => array(
+                    "Pragma: no-cache",
+                    "Origin: " . $this->configurations['base'],
+                    "Host: ". array_get($configurations, 'headers.Host'),
+                    "User-Agent: Mozilla/5.0 (Windows NT 6.1; rv:32.0) Gecko/20100101 Firefox/32.0",
+                    "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                    "Accept-Language: pt-BR,pt;q=0.8,en-US;q=0.5,en;q=0.3",
                     "Accept-Encoding: gzip, deflate",
-                    "Referer: http://pfeserv1.fazenda.sp.gov.br/sintegrapfe/consultaSintegraServlet",
+                    "Referer: " . $this->configurations['home'] .'?cnpj='. $document,
                     "Cookie: flag=1; ". $cookie,
                     "Connection: keep-alive"
                 ),

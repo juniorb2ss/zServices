@@ -1,11 +1,11 @@
-<?php namespace tests\Sintegra\SP;
+<?php namespace tests\ReceitaFederal\AN;
 
-use zServices\Sintegra\Search;
+use zServices\ReceitaFederal\Search;
 
 class testGetParams extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @group sintegra-request
+     * @group receita-request
      */
     public function testGetParamsArray()
     {

@@ -1,4 +1,4 @@
-<?php namespace tests\Sintegra\SP;
+<?php namespace tests\ReceitaFederal\AN;
 
 use zServices\Sintegra\Search;
 use zServices\Sintegra\Services\Portais\SP\Service as ServiceExpected;
@@ -7,7 +7,7 @@ use zServices\Miscellany\Interfaces\ServiceInterface;
 class testService extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @group sintegra-service
+     * @group receita-service
      */
 	public function testServiceExist()
     {
@@ -35,7 +35,7 @@ class testService extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @group sintegra-service
+     * @group receita-service
      * @expectedException zServices\Miscellany\Exceptions\InvalidService
      * @expectedExceptionMessageRegExp #Portal.*#
      */
