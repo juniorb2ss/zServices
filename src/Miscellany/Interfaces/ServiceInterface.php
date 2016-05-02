@@ -10,13 +10,13 @@ interface ServiceInterface {
 
 	/**
 	 * [search description]
-	 * @return [type] [description]
+	 * @return string [description]
 	 */
 	public function captcha();
 
 	/**
 	 * [cookie description]
-	 * @return [type] [description]
+	 * @return string [description]
 	 */
 	public function cookie();
 

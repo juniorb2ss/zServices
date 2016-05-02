@@ -60,7 +60,6 @@ class Curl
 
     /**
      * [post description]
-     * @param  [type] $params [description]
      * @return [type]         [description]
      */
     public function post(array $fields)
@@ -73,7 +72,7 @@ class Curl
 
     /**
      * Set option in cURL
-     * @param  mix $option 
+     * @param  integer $option 
      * @param  mix $value 
      */
     public function option($option, $value)

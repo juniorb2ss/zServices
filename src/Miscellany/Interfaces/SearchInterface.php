@@ -11,13 +11,13 @@ interface SearchInterface {
 
 	/**
 	 * [search description]
-	 * @return [type] [description]
+	 * @return string [description]
 	 */
 	public function getCaptcha();
 
 	/**
 	 * [cookie description]
-	 * @return [type] [description]
+	 * @return string [description]
 	 */
 	public function getCookie();
 
@@ -30,6 +30,8 @@ interface SearchInterface {
 	/**
 	 * [getData description]
 	 * @param  [type] $configurations [description]
+	 * @param string $cookie
+	 * @param string $captcha
 	 * @return [type]                 [description]
 	 */
 	public function getData($document, $cookie, $captcha, $params, $configurations);

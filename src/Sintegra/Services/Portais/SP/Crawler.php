@@ -2,7 +2,6 @@
 
 use zServices\Miscellany\Interfaces\CrawlerInterface;
 use Symfony\Component\DomCrawler\Crawler as BaseCrawler;
-use zServices\Miscellany\Exceptions\NoSelectorsConfigured;
 use zServices\Miscellany\Exceptions\ErrorFoundData;
 
 /**
@@ -32,13 +31,13 @@ class Crawler extends BaseCrawler implements CrawlerInterface
     /**
      * Verifica antes de fazer o crawler se possui erros
      * na requisição
-     * @return boolean 
+     * @return boolean|null 
      */
     public function hasError()
     {
         $node = $this->scrap($this->selectors['razao_social']);
 
-        if(!$node->count())
+        if (!$node->count())
         {
             throw new ErrorFoundData($this->clearString($this->scrap($this->selectors['error'])->text()), 1);
         }
@@ -56,16 +55,16 @@ class Crawler extends BaseCrawler implements CrawlerInterface
         $this->hasError();
 
         foreach ($this->selectors as $name => $selector) {
-            if(is_string($selector)){
+            if (is_string($selector)) {
                 $node = $this->scrap($selector);
 
-                if($node->count()){
+                if ($node->count()) {
                     $scrapped[$name] = $this->clearString($node->text());
                 }
-            }elseif(is_array($selector)){
+            }elseif (is_array($selector)) {
                 foreach ($selector as $selector => $repeat) {
                     $node = $this->scrap($selector);
-                    if($node->count()){
+                    if ($node->count()) {
                         foreach ($node->filter($repeat) as $loop)
                         {
                             $scrapped[$name][] = $this->clearString($loop->nodeValue);
