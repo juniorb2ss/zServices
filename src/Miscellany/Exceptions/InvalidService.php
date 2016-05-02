@@ -1,4 +1,4 @@
-<?php namespace zServices\Sintegra\Exceptions;
+<?php namespace zServices\Miscellany\Exceptions;
 
 use Exception;
 

@@ -1,6 +1,6 @@
 <?php namespace zServices\Sintegra\Services\Portais\SP;
 
-use zServices\Sintegra\Services\Interfaces\ServiceInterface;
+use zServices\Miscellany\Interfaces\ServiceInterface;
 use zServices\Sintegra\Services\Portais\SP\Search;
 
 /**

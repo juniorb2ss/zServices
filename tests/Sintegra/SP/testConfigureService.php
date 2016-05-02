@@ -2,7 +2,7 @@
 
 use zServices\Sintegra\Search;
 use zServices\Sintegra\Services\Portais\SP\Service as ServiceExpected;
-use zServices\Sintegra\Services\Interfaces\ServiceInterface;
+use zServices\Miscellany\Interfaces\ServiceInterface;
 
 class testService extends PHPUnit_Framework_TestCase
 {
@@ -37,7 +37,7 @@ class testService extends PHPUnit_Framework_TestCase
 
     /**
      * @group service
-     * @expectedException zServices\Sintegra\Exceptions\InvalidService
+     * @expectedException zServices\Miscellany\Exceptions\InvalidService
      * @expectedExceptionMessageRegExp #Portal.*#
      */
     public function testServiceNotExist()

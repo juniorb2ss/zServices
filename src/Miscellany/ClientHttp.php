@@ -1,5 +1,5 @@
 <?php
-namespace zServices\Sintegra\Services;
+namespace zServices\Miscellany;
 
 use Goutte\Client as BaseClient;
 

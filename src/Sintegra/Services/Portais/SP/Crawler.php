@@ -1,9 +1,9 @@
 <?php namespace zServices\Sintegra\Services\Portais\SP;
 
-use zServices\Sintegra\Services\Interfaces\CrawlerInterface;
+use zServices\Miscellany\Interfaces\CrawlerInterface;
 use Symfony\Component\DomCrawler\Crawler as BaseCrawler;
-use zServices\Sintegra\Exceptions\NoSelectorsConfigured;
-use zServices\Sintegra\Exceptions\ErrorFoundData;
+use zServices\Miscellany\Exceptions\NoSelectorsConfigured;
+use zServices\Miscellany\Exceptions\ErrorFoundData;
 
 /**
 * 

@@ -6,7 +6,7 @@ class testInvalidSequenceRequest extends PHPUnit_Framework_TestCase
 {
     /**
      * Testa a sequência de request da classe
-     * @expectedException zServices\Sintegra\Exceptions\NoServiceCall
+     * @expectedException zServices\Miscellany\Exceptions\NoServiceCall
      * @expectedExceptionMessageRegExp #No request.*#
      * @group request
      */

@@ -1,4 +1,4 @@
-<?php namespace zServices\Sintegra\Services\Sintegra\Interfaces;
+<?php namespace zServices\Miscellany\Interfaces;
 
 interface ServiceInterface {
 

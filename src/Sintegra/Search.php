@@ -1,7 +1,7 @@
 <?php namespace zServices\Sintegra;
 
-use zServices\Sintegra\Exceptions\InvalidService;
-use zServices\Sintegra\Services\Interfaces\ServiceInterface;
+use zServices\Miscellany\Exceptions\InvalidService;
+use zServices\Miscellany\Interfaces\ServiceInterface;
 
 /**
 * Providencias os serviços e configurações

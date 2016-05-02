@@ -1,13 +1,13 @@
 <?php namespace zServices\Sintegra\Services\Portais\SP;
 
-use zServices\Sintegra\Services\Interfaces\SearchInterface;
+use zServices\Miscellany\Interfaces\SearchInterface;
 use zServices\Sintegra\Services\Portais\SP\Crawler;
-use zServices\Sintegra\Exceptions\NoServiceCall;
-use zServices\Sintegra\Exceptions\NoCaptchaResponse;
-use zServices\Sintegra\Exceptions\NoServiceResponse;
-use zServices\Sintegra\Exceptions\ImageNotFound;
-use zServices\Sintegra\Services\ClientHttp;
-use zServices\Sintegra\Services\Curl;
+use zServices\Miscellany\Exceptions\NoServiceCall;
+use zServices\Miscellany\Exceptions\NoCaptchaResponse;
+use zServices\Miscellany\Exceptions\NoServiceResponse;
+use zServices\Miscellany\Exceptions\ImageNotFound;
+use zServices\Miscellany\ClientHttp;
+use zServices\Miscellany\Curl;
 
 /**
 * 
