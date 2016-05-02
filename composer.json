@@ -18,6 +18,9 @@
         "intervention/image": "^2.3",
         "illuminate/support": "^5.2"
     },
+    "require-dev": {
+       "codeclimate/php-test-reporter": "dev-master"
+    },
     "autoload": {
         "psr-4": {
             "zServices\\": "src"

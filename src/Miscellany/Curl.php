@@ -65,8 +65,8 @@ class Curl
      */
     public function post(array $fields)
     {
-        curl_setopt($this->instance, CURLOPT_POST, count($fields));
-        curl_setopt($this->instance, CURLOPT_POSTFIELDS, http_build_query($fields));
+        $curl = curl_setopt($this->instance, CURLOPT_POST, count($fields));
+        $curl = curl_setopt($this->instance, CURLOPT_POSTFIELDS, http_build_query($fields));
 
         return $this;
     }
