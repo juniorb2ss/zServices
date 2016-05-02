@@ -24,7 +24,11 @@
     "autoload": {
         "psr-4": {
             "zServices\\": "src"
-        }
+        },
+        "files":[
+          "src/Helpers/Sintegra.php",
+          "src/Helpers/ReceitaFederal.php"
+        ]
     },
     "minimum-stability": "stable"
 }
