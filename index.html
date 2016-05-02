@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Pacote para consultas nos portais Federais e Estaduais do Brasil</title>
+    <title>Zservices by juniorb2ss</title>
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/github-dark.css">
@@ -58,7 +58,7 @@ o captcha é feito outra requisição, retornando informações do CNPJ.</p>
 <h3>
 <a id="version-stable" class="anchor" href="#version-stable" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Version Stable</h3>
 
-<p>1.0.7</p>
+<p>1.1.1</p>
 
 <h3>
 <a id="instalação" class="anchor" href="#instala%C3%A7%C3%A3o" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Instalação</h3>
@@ -97,6 +97,14 @@ o captcha é feito outra requisição, retornando informações do CNPJ.</p>
 <h4>
 <a id="receita-federal" class="anchor" href="#receita-federal" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Receita Federal</h4>
 
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$rf</span> <span class="pl-k">=</span> receitaFederal(); <span class="pl-c">// retornará um array com cookie e base64 captcha</span></span></pre></div>
+
+<p>Para requisitar os dados</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$rf</span> <span class="pl-k">=</span> receitaFederal(<span class="pl-smi">$cnpj</span>, <span class="pl-smi">$cookie</span>, <span class="pl-smi">$captcha</span>); <span class="pl-c">// retornará um array com os dados do CNPJ na Receita Federal</span></span></pre></div>
+
+<p>ou</p>
+
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">zServices\ReceitaFederal\Search</span> <span class="pl-k">as</span> <span class="pl-c1">ReceitaFederal</span>;</span>
 <span class="pl-s1"><span class="pl-smi">$search</span> <span class="pl-k">=</span> (<span class="pl-k">new</span> <span class="pl-c1">ReceitaFederal</span>)<span class="pl-k">-&gt;</span>service()<span class="pl-k">-&gt;</span>request(); <span class="pl-c">// initialize</span></span>
 <span class="pl-s1"></span>
@@ -120,7 +128,15 @@ do CNPJ informado.</p>
 <h4>
 <a id="sintegra-sp" class="anchor" href="#sintegra-sp" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Sintegra SP</h4>
 
-<p>Dados para form</p>
+<p>Helper</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$rf</span> <span class="pl-k">=</span> sintegra(); <span class="pl-c">// retornará um array com cookie e base64 captcha</span></span></pre></div>
+
+<p>Para requisitar os dados</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$rf</span> <span class="pl-k">=</span> sintegra(<span class="pl-smi">$cnpj</span>, <span class="pl-smi">$cookie</span>, <span class="pl-smi">$captcha</span>, <span class="pl-smi">$params</span>); <span class="pl-c">// retornará um array com os dados do documento no Sintegra</span></span></pre></div>
+
+<p>ou</p>
 
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">zServices\Sintegra\Search</span> <span class="pl-k">as</span> <span class="pl-c1">Sintegra</span>;</span>
 <span class="pl-s1"><span class="pl-smi">$search</span> <span class="pl-k">=</span> (<span class="pl-k">new</span> <span class="pl-c1">Sintegra</span>)<span class="pl-k">-&gt;</span>service(<span class="pl-s"><span class="pl-pds">'</span>SP<span class="pl-pds">'</span></span>)<span class="pl-k">-&gt;</span>request(); <span class="pl-c">// initialize</span></span>
