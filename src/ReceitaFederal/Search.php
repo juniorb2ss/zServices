@@ -23,8 +23,6 @@ class Search
 	{
 		$service = new Service;
 
-		if($service instanceof ServiceInterface){
-			return $this->service = $service;
-		}
+		return $this->service = $service;
 	}
 }

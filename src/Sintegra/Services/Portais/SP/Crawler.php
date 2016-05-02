@@ -55,10 +55,6 @@ class Crawler extends BaseCrawler implements CrawlerInterface
 
         $this->hasError();
 
-        if(!count($this->selectors)) {
-            throw new NoSelectorsConfigured("NoSelectorsConfigured", 1);
-        }
-
         foreach ($this->selectors as $name => $selector) {
             if(is_string($selector)){
                 $node = $this->scrap($selector);

@@ -37,6 +37,10 @@ class Crawler extends BaseCrawler implements CrawlerInterface
      */
     public function hasError()
     {
+        if(count( $this->selectors) == 0) {
+            throw new NoSelectorsConfigured("NoSelectorsConfigured", 1);
+        }
+
         // verifica se a página seguida na requisição 
         // é página de erro da receita federal
         $node = $this->filter($this->selectors['error']);
@@ -61,10 +65,6 @@ class Crawler extends BaseCrawler implements CrawlerInterface
         $scrapped = [];
 
         $this->hasError();
-
-        if(!count($this->selectors)) {
-            throw new NoSelectorsConfigured("NoSelectorsConfigured", 1);
-        }
 
         foreach ($this->selectors as $name => $selector) {
             if(is_string($selector)){
