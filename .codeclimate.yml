@@ -5,6 +5,7 @@ engines:
     exclude_fingerprints:
     - 23a4e375d72b5e1da90c48ab63dfdd71
     - 92f7af3e76cb3a5370d22eecab93f7e7
+    - e597839b2e76ce3b6b1a0a3fe948781c
     checks:
       CleanCode/BooleanArgumentFlag:
         enabled: false

@@ -5,6 +5,8 @@
 [![Dependency Status](https://gemnasium.com/badges/github.com/juniorb2ss/zServices.svg)](https://gemnasium.com/github.com/juniorb2ss/zServices)
 [![Issues Status](https://img.shields.io/github/issues/juniorb2ss/zServices.svg)](https://github.com/juniorb2ss/zServices/issues)
 [![Stars Status](https://img.shields.io/github/stars/juniorb2ss/zServices.svg)](https://github.com/juniorb2ss/zServices/stargazers)
+[![Code Climate](https://codeclimate.com/github/juniorb2ss/zServices/badges/gpa.svg)](https://codeclimate.com/github/juniorb2ss/zServices)
+[![Issue Count](https://codeclimate.com/github/juniorb2ss/zServices/badges/issue_count.svg)](https://codeclimate.com/github/juniorb2ss/zServices)
 
 Pacote para buscar informações nos serviços federais e estaduais do Brasil
 
