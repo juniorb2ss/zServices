@@ -112,6 +112,9 @@ class Service implements ServiceInterface
 
 	/**
 	 * Informações da entidade no serviço
+	 * @param boolean $document
+	 * @param false|string $cookie
+	 * @param false|string $captcha
 	 * @return array
 	 */
 	public function data($document, $cookie, $captcha, array $params = [])

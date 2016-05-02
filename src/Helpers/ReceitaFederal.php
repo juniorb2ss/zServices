@@ -31,8 +31,8 @@ if (!function_exists('receitafederal'))
 		$search->request();
 
 		return  [
-            'cookie' => $search->cookie(),
-            'image'  => $search->captcha()
-        ];
+			'cookie' => $search->cookie(),
+			'image'  => $search->captcha()
+		];
 	}
 }
