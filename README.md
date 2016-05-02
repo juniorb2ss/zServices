@@ -8,6 +8,7 @@
 [![Code Climate](https://codeclimate.com/github/juniorb2ss/zServices/badges/gpa.svg)](https://codeclimate.com/github/juniorb2ss/zServices)
 [![Issue Count](https://codeclimate.com/github/juniorb2ss/zServices/badges/issue_count.svg)](https://codeclimate.com/github/juniorb2ss/zServices)
 [![Test Coverage](https://codeclimate.com/github/juniorb2ss/zServices/badges/coverage.svg)](https://codeclimate.com/github/juniorb2ss/zServices/coverage)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/juniorb2ss/zServices/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/juniorb2ss/zServices/?branch=master)
 
 Pacote para buscar informações nos serviços federais e estaduais do Brasil
 
