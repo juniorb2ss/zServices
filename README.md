@@ -24,13 +24,12 @@ Este pacote foi desenvolvido com o intuito de facilidade consultas através de E
 Toda implementação será de sua responsabilidade.
 
 ### Version Stable
-1.0.3
+1.0.6
 
 ### Instalação
 
 ```sh
 $ composer require zservices/query 1.*
-$ cd vendor/zServices/Query && phpunit
 ```
 ### Laravel 5
 Configure os providers e aliases em `config/app.php`
