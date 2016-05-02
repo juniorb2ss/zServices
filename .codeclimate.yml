@@ -9,6 +9,8 @@ engines:
     checks:
       CleanCode/BooleanArgumentFlag:
         enabled: false
+      Identical code:
+        enabled: false
     config:
       languages:
       - php
