@@ -23,7 +23,28 @@ $ composer require zservices/query 1.*
 ```
 ### Exemplos
 #### Receita Federal
-Em breve
+
+```php
+use zServices\ReceitaFederal\Search as ReceitaFederal;
+$search = (new ReceitaFederal)->service()->request(); // initialize
+
+$captchaBase64Image = $search->captcha(); // captura base64_decode da imagem
+$cookieRequest = $search->cookie(); // captura o cookie do request iniciado
+
+```
+
+Dados após o form
+```php
+// Requisitar dados
+use zServices\ReceitaFederal\Search as ReceitaFederal;
+
+$search = (new ReceitaFederal)->service();
+$crawler = $search->data($cnpj, $cookie, $captcha, []);
+$arrayData = $crawler->scraping(); // array com as informações da entidade
+```
+Para consultar receita federal basta pegar o cookie e a imagem do captcha, após resolver o captcha é preciso
+retornar o cookie e a string resolvida para o serviço, ele deverá retornar um array associado com as informações
+do CNPJ informado.
 #### Sintegra SP
 
 Dados para form
