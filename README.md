@@ -31,6 +31,11 @@ Toda implementação será de sua responsabilidade.
 ```sh
 $ composer require zservices/query 1.*
 ```
+### Laravel
+
+```php
+
+```
 ### Exemplos
 #### Receita Federal
 
