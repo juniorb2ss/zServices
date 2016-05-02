@@ -60,6 +60,15 @@ return view('receitafederal.query.example',[
 #### Receita Federal
 
 ```php
+$rf = receitaFederal(); // retornará um array com cookie e base64 captcha
+```
+
+Para requisitar os dados
+```php
+$rf = receitaFederal($cnpj, $cookie, $captcha); // retornará um array com os dados do CNPJ na Receita Federal
+```
+ou
+```php
 use zServices\ReceitaFederal\Search as ReceitaFederal;
 $search = (new ReceitaFederal)->service()->request(); // initialize
 
@@ -82,7 +91,17 @@ retornar o cookie e a string resolvida para o serviço, ele deverá retornar um 
 do CNPJ informado.
 #### Sintegra SP
 
-Dados para form
+Helper
+
+```php
+$rf = sintegra(); // retornará um array com cookie e base64 captcha
+```
+
+Para requisitar os dados
+```php
+$rf = sintegra($cnpj, $cookie, $captcha, $params); // retornará um array com os dados do documento no Sintegra
+```
+ou
 
 ```php
 use zServices\Sintegra\Search as Sintegra;
