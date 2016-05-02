@@ -20,7 +20,7 @@ if (!function_exists('receitafederal'))
 		/**
 		 * @var array data
 		 */
-		if($document && $cookie && $captcha) {
+		if ($document !== false && $cookie !== false && $captcha !== false) {
 			$crawler = $search->data($document, $cookie, $captcha, $params);
 
 			return $crawler->scraping();

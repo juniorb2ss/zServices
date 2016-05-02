@@ -9,7 +9,7 @@ if (!function_exists('sintegra'))
 	 * @param  array $params   
 	 * @return array
 	 */
-	function sintegra($portal = 'SP', $document = false, $cookie = false, $captcha = false, $params = false )
+	function sintegra($portal = 'SP', $document = false, $cookie = false, $captcha = false, $params = false)
 	{	
 		/**
 		 * Inicia a classe
@@ -20,7 +20,7 @@ if (!function_exists('sintegra'))
 		/**
 		 * @var array data
 		 */
-		if($document && $cookie && $captcha && $params) {
+		if ($document !== false && $cookie !== false && $captcha !== false && $params !== false) {
 			$crawler = $search->data($document, $cookie, $captcha, $params);
 
 			return $crawler->scraping();
