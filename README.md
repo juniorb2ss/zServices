@@ -30,11 +30,32 @@ Toda implementação será de sua responsabilidade.
 
 ```sh
 $ composer require zservices/query 1.*
+$ cd vendor/zServices/Query && phpunit
 ```
-### Laravel
-
+### Laravel 5
+Configure os providers e aliases em `config/app.php`
 ```php
+'providers' => [
+    // ....
+      zServices\Laravel\zServicesProvider::class,
+    //...
+];
 
+'aliases' => [
+    //...
+    'Sintegra' => zServices\Laravel\zServicesSintegraFacade::class,
+    'ReceitaFederal' => zServices\Laravel\zServicesReceitaFederalFacade::class,
+    //...
+];
+```
+```php
+use ReceitaFederal;
+$service = ReceitaFederal::service()->request();
+
+return view('receitafederal.query.example',[
+    'cookie' => $service->cookie(),
+    'image'  => $service->captcha()
+]);
 ```
 ### Exemplos
 #### Receita Federal
