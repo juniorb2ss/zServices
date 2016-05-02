@@ -1,5 +1,5 @@
 # zServices
-
+[![Laravel 5](https://img.shields.io/badge/Laravel-5-green.svg)](https://laravel.com)
 [![Latest Stable Version](https://poser.pugx.org/zservices/query/v/stable)](https://packagist.org/packages/zservices/query) [![Total Downloads](https://poser.pugx.org/zservices/query/downloads)](https://packagist.org/packages/zservices/query) [![Latest Unstable Version](https://poser.pugx.org/zservices/query/v/unstable)](https://packagist.org/packages/zservices/query) [![License](https://poser.pugx.org/zservices/query/license)](https://packagist.org/packages/zservices/query)
 [![Build Status](https://api.travis-ci.org/juniorb2ss/zServices.svg?branch=master)](https://travis-ci.org/juniorb2ss/zServices)
 [![Dependency Status](https://gemnasium.com/badges/github.com/juniorb2ss/zServices.svg)](https://gemnasium.com/github.com/juniorb2ss/zServices)
