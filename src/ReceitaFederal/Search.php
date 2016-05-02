@@ -26,7 +26,5 @@ class Search
 		if($service instanceof ServiceInterface){
 			return $this->service = $service;
 		}
-
-		throw new InvalidService("Portal $service invalid", 1);
 	}
 }

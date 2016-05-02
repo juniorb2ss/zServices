@@ -6,7 +6,7 @@ class testInvalidCaptcha extends \PHPUnit_Framework_TestCase
 {
     /**
      * Testa retorno de captcha inválido
-     * @expectedException zServices\Miscellany\Exceptions\InvalidCaptcha
+     * @expectedException \zServices\Miscellany\Exceptions\InvalidCaptcha
      * @expectedExceptionMessageRegExp #Captcha.*#
      * @group receita-captcha
      */
