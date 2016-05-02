@@ -74,7 +74,7 @@ class Service implements ServiceInterface
 	/**
 	 * Executa primeira requisição preparando
 	 * o cookie e captcha
-	 * @return  void
+	 * @return  Service
 	 */
 	public function request()
 	{

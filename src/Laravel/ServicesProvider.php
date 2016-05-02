@@ -34,7 +34,7 @@ class ServicesProvider extends ServiceProvider {
    */
   protected function registerReceitaFederal()
   {
-  	$this->app->bind('ReceitaFederal', function(){
+  	$this->app->bind('ReceitaFederal', function() {
   		return new RFSearch;
   	});
   }
@@ -46,7 +46,7 @@ class ServicesProvider extends ServiceProvider {
    */
   protected function registerSintegra()
   {
-  	$this->app->bind('Sintegra', function(){
+  	$this->app->bind('Sintegra', function() {
   		return new Search;
   	});
   }
