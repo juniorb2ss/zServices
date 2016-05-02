@@ -5,13 +5,12 @@ use Illuminate\Support\Facades\Facade;
 /**
  * @see \Weidner\Goutte\Goutte
  */
-class zServicesSintegraFacade extends Facade {
+class ReceitaFederalFacade extends Facade {
 
   /**
    * Get the registered name of the component.
    *
    * @return string
    */
-  protected static function getFacadeAccessor() { return 'Sintegra'; }
-
+  protected static function getFacadeAccessor() { return 'ReceitaFederal'; }
 }

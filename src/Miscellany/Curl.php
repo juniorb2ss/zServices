@@ -33,6 +33,7 @@ class Curl
 
 	/**
 	 * Initialize
+	 * @param string $url
 	 * @return object
 	 */
 	public function init($url)
@@ -46,7 +47,7 @@ class Curl
 
 	/**
 	 * Set option
-	 * @param  array  $options [description]
+	 * @param  array  $options
 	 * @return object
 	 */
 	public function options(array $options)

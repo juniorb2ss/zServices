@@ -4,7 +4,7 @@ use zServices\Sintegra\Search;
 use zServices\ReceitaFederal\Search as RFSearch;
 use Illuminate\Support\ServiceProvider;
 
-class zServicesProvider extends ServiceProvider {
+class ServicesProvider extends ServiceProvider {
 
   /**
    * Indicates if loading of the provider is deferred.

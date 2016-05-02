@@ -36,14 +36,14 @@ Configure os providers e aliases em `config/app.php`
 ```php
 'providers' => [
     // ....
-      zServices\Laravel\zServicesProvider::class,
+      zServices\Laravel\ServicesProvider::class,
     //...
 ];
 
 'aliases' => [
     //...
-    'Sintegra' => zServices\Laravel\zServicesSintegraFacade::class,
-    'ReceitaFederal' => zServices\Laravel\zServicesReceitaFederalFacade::class,
+    'Sintegra' => zServices\Laravel\SintegraFacade::class,
+    'ReceitaFederal' => zServices\Laravel\ReceitaFederalFacade::class,
     //...
 ];
 ```
