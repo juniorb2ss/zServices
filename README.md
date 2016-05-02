@@ -24,7 +24,7 @@ Este pacote foi desenvolvido com o intuito de facilidade consultas através de E
 Toda implementação será de sua responsabilidade.
 
 ### Version Stable
-1.0.0
+1.0.3
 
 ### Instalação
 
