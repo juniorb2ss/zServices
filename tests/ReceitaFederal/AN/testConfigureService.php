@@ -1,7 +1,7 @@
 <?php namespace tests\ReceitaFederal\AN;
 
-use zServices\Sintegra\Search;
-use zServices\Sintegra\Services\Portais\SP\Service as ServiceExpected;
+use zServices\ReceitaFederal\Search;
+use zServices\ReceitaFederal\Services\Portais\AN\Service as ServiceExpected;
 use zServices\Miscellany\Interfaces\ServiceInterface;
 
 class testService extends \PHPUnit_Framework_TestCase
@@ -32,15 +32,5 @@ class testService extends \PHPUnit_Framework_TestCase
                 ), 
                 'Configurations on this service is invalid'
         );
-    }
-
-    /**
-     * @group receita-service
-     * @expectedException zServices\Miscellany\Exceptions\InvalidService
-     * @expectedExceptionMessageRegExp #Portal.*#
-     */
-    public function testServiceNotExist()
-    {
-    	$search = (new Search)->service('no_service');
     }
 }
