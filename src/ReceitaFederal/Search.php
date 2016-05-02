@@ -1,7 +1,7 @@
 <?php namespace zServices\Sintegra;
 
 use zServices\Sintegra\Exceptions\InvalidService;
-use zServices\Sintegra\Services\Interfaces\ServiceInterface;
+use zServices\Sintegra\Services\Sintegra\Interfaces\ServiceInterface;
 
 /**
 * Providencias os serviços e configurações
@@ -13,7 +13,7 @@ class Search
 	 * @var [type]
 	 */
 	private $services = [
-		'SP' => \zServices\Sintegra\Services\Portais\SP\Service::class,
+		'SP' => \zServices\Sintegra\Services\Sintegra\SP\Service::class,
 	];
 
 	/**

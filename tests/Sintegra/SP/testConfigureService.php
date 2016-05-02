@@ -1,8 +1,8 @@
 <?php
 
 use zServices\Sintegra\Search;
-use zServices\Sintegra\Services\Sintegra\SP\Service as ServiceExpected;
-use zServices\Sintegra\Services\Sintegra\Interfaces\ServiceInterface;
+use zServices\Sintegra\Services\Portais\SP\Service as ServiceExpected;
+use zServices\Sintegra\Services\Interfaces\ServiceInterface;
 
 class testService extends PHPUnit_Framework_TestCase
 {

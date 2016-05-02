@@ -1,7 +1,7 @@
 <?php
 
 use zServices\Sintegra\Search;
-use zServices\Sintegra\Services\Sintegra\SP\Crawler;
+use zServices\Sintegra\Services\Portais\SP\Crawler;
 
 class testCrawlerHtmlData extends PHPUnit_Framework_TestCase
 {   
@@ -23,7 +23,7 @@ class testCrawlerHtmlData extends PHPUnit_Framework_TestCase
      */
     public function testCrawlerHtmlBody($html)
     {
-        $service = new zServices\Sintegra\Services\Sintegra\SP\Service;
+        $service = new zServices\Sintegra\Services\Portais\SP\Service;
         $configurations = $service->configurations;
 
     	$crawler = new Crawler($html, array_get($configurations, 'selectors.data'));

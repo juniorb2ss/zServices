@@ -20,7 +20,8 @@
     },
     "autoload": {
         "psr-4": {
-            "zServices\\Sintegra\\": "src/Sintegra"
+            "zServices\\Sintegra\\": "src/Sintegra",
+            "zServices\\ReceitaFederal\\": "src/ReceitaFederal"
         }
     },
     "minimum-stability": "stable"
