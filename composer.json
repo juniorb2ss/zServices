@@ -25,7 +25,7 @@
         "psr-4": {
             "zServices\\": "src"
         },
-        "files":[
+        "files": [
           "src/Helpers/Sintegra.php",
           "src/Helpers/ReceitaFederal.php"
         ]
