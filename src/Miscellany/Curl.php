@@ -39,6 +39,8 @@ class Curl
     {
         $this->instance = curl_init($url);
 
+        $this->url = $url;
+
         return $this;
     }
 
