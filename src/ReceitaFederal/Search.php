@@ -1,7 +1,5 @@
 <?php namespace zServices\ReceitaFederal;
 
-use zServices\Miscellany\Exceptions\InvalidService;
-use zServices\Miscellany\Interfaces\ServiceInterface;
 use zServices\ReceitaFederal\Services\Portais\AN\Service;
 
 /**

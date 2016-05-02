@@ -28,10 +28,10 @@ class Search
 	 */
 	public function service($service)
 	{
-		if(array_key_exists($service, $this->services) && class_exists($this->services[$service])){
+		if (array_key_exists($service, $this->services) && class_exists($this->services[$service])) {
 			$service = new $this->services[$service];
 
-			if($service instanceof ServiceInterface){
+			if ($service instanceof ServiceInterface) {
 				return $this->service = $service;
 			}
 		}
