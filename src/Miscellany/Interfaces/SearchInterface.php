@@ -10,29 +10,31 @@ interface SearchInterface {
 	public function request($configurations);
 
 	/**
-	 * [search description]
-	 * @return string [description]
+	 * Get Captcha
+	 * @return string
 	 */
 	public function getCaptcha();
 
 	/**
-	 * [cookie description]
-	 * @return string [description]
+	 * Get Cookie string
+	 * @return string 
 	 */
 	public function getCookie();
 
 	/**
-	 * [params description]
-	 * @return [type] [description]
+	 * Get params
+	 * @return array
 	 */
 	public function getParams();
 
 	/**
-	 * [getData description]
-	 * @param  [type] $configurations [description]
-	 * @param string $cookie
-	 * @param string $captcha
-	 * @return [type]                 [description]
+	 * Get Data from request
+	 * @param  integer $document      
+	 * @param  string $cookie   Cookie request
+	 * @param  string $captcha  Captcha response     
+	 * @param  array $params   Params
+	 * @param  array $configurations Configurations
+	 * @return array                
 	 */
 	public function getData($document, $cookie, $captcha, $params, $configurations);
 }

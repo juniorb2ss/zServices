@@ -8,14 +8,14 @@ use zServices\ReceitaFederal\Services\Portais\AN\Service;
 class Search
 {
 	/**
-	 * [$service description]
-	 * @var [type]
+	 * Service instance
+	 * @var object
 	 */
 	private $service;
 
 	/**
-	 * [service description]
-	 * @return [type] [description]
+	 * Get service instance
+	 * @return object
 	 */
 	public function service()
 	{

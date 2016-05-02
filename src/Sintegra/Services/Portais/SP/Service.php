@@ -54,13 +54,14 @@ class Service implements ServiceInterface
 	];
 
 	/**
-	 * [$search description]
-	 * @var [type]
+	 * Search instance
+	 * @var object
 	 */
 	private $search;
 
 	/**
-	 * [__construct description]
+	 * Get search instance
+	 * @return void
 	 */
 	public function __construct()
 	{
@@ -68,8 +69,9 @@ class Service implements ServiceInterface
 	}
 
 	/**
-	 * Executa primeira requisição, preparante
+	 * Executa primeira requisição preparando
 	 * o cookie e captcha
+	 * @return  void
 	 */
 	public function request()
 	{
@@ -97,6 +99,7 @@ class Service implements ServiceInterface
 	}
 
 	/**
+	 * Get params
 	 * @return array
 	 */
 	public function params()

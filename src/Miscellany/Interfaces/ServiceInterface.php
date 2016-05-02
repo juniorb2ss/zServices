@@ -3,26 +3,26 @@
 interface ServiceInterface {
 
 	/**
-	 * [request description]
-	 * @return [type] [description]
+	 * Return request
+	 * @return object
 	 */
 	public function request();
 
 	/**
-	 * [search description]
-	 * @return string [description]
+	 * Return captcha string
+	 * @return string
 	 */
 	public function captcha();
 
 	/**
-	 * [cookie description]
-	 * @return string [description]
+	 * Return cookie string
+	 * @return string
 	 */
 	public function cookie();
 
 	/**
-	 * [data description]
-	 * @return [type] [description]
+	 * Return data
+	 * @return array
 	 */
 	public function data($document, $cookie, $captcha, array $params = []);
 }

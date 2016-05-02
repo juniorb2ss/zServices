@@ -9,38 +9,38 @@ use Goutte\Client as BaseClient;
 class ClientHttp extends BaseClient
 {
 	/**
-	 * [$protocol description]
-	 * @var [type]
+	 * Method request
+	 * @var string
 	 */
 	protected $method;
 
 	/**
-	 * [$url description]
-	 * @var [type]
+	 * URL to Request
+	 * @var string
 	 */
 	protected $url;
 
 	/**
-	 * [$cookie description]
-	 * @var [type]
+	 * Cookie string
+	 * @var string
 	 */
 	protected $cookie;
 
 	/**
-	 * [$response description]
-	 * @var [type]
+	 * Response from request
+	 * @var string
 	 */
 	protected $response;
 
 	/**
-	 * [request description]
-	 * @param  string  $method        [description]
-	 * @param  string  $url           [description]
-	 * @param  array   $parameters    [description]
-	 * @param  array   $files         [description]
-	 * @param  array   $server        [description]
-	 * @param  [type]  $content       [description]
-	 * @param  boolean $changeHistory [description]
+	 * Request to URL
+	 * @param  string  $method        
+	 * @param  string  $url           
+	 * @param  array   $parameters    
+	 * @param  array   $files        
+	 * @param  array   $server        
+	 * @param  string  $content       
+	 * @param  boolean $changeHistory 
 	 * @return @instance
 	 */
 	public function request($method, $url, array $parameters = array(), array $files = array(), array $server = array(), $content = null, $changeHistory = true)
@@ -52,8 +52,8 @@ class ClientHttp extends BaseClient
 	}
 
 	/**
-	 * [headers description]
-	 * @return [type] [description]
+	 * get headers from response
+	 * @return string
 	 */
 	private function headers()
 	{
@@ -61,8 +61,8 @@ class ClientHttp extends BaseClient
 	}
 
 	/**
-	 * [cookie description]
-	 * @return [type] [description]
+	 * get cookie from response
+	 * @return string
 	 */
 	public function cookie()
 	{

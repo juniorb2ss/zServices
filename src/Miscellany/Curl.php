@@ -8,32 +8,32 @@ class Curl
 {
 
 	/**
-	 * [$url description]
-	 * @var [type]
+	 * URL to Request
+	 * @var string
 	 */
 	private $url;
 
 	/**
-	 * [$options description]
-	 * @var [type]
+	 * Options to request
+	 * @var array
 	 */
-	private $options;
+	private $options = [];
 
 	/**
-	 * [$instance description]
-	 * @var [type]
+	 * Object instance
+	 * @var object
 	 */
 	private $instance;
 
 	/**
-	 * [$response description]
-	 * @var [type]
+	 * Response from request
+	 * @var string
 	 */
 	private $response;
 
 	/**
-	 * [init description]
-	 * @return [type] [description]
+	 * Initialize
+	 * @return object
 	 */
 	public function init($url)
 	{
@@ -45,9 +45,9 @@ class Curl
 	}
 
 	/**
-	 * [options description]
+	 * Set option
 	 * @param  array  $options [description]
-	 * @return [type]          [description]
+	 * @return object
 	 */
 	public function options(array $options)
 	{
@@ -59,8 +59,8 @@ class Curl
 	}
 
 	/**
-	 * [post description]
-	 * @return [type]         [description]
+	 * POST Params
+	 * @return object
 	 */
 	public function post(array $fields)
 	{
@@ -81,8 +81,7 @@ class Curl
 	}
 
 	/**
-	 * [exec description]
-	 * @return [type] [description]
+	 * Request
 	 */
 	public function exec()
 	{
@@ -90,8 +89,8 @@ class Curl
 	}
 
 	/**
-	 * [close description]
-	 * @return [type] [description]
+	 * Close connection
+	 * @return object
 	 */
 	public function close()
 	{
@@ -101,8 +100,8 @@ class Curl
 	}
 
 	/**
-	 * [response description]
-	 * @return [type] [description]
+	 * Return response from request
+	 * @return string
 	 */
 	public function response()
 	{

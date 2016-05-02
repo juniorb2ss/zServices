@@ -1,1 +1,10 @@
-Image.php
+<?php
+namespace zServices\Miscellany;
+
+/**
+*
+*/
+class Image
+{
+
+}

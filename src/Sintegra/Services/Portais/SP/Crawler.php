@@ -11,15 +11,16 @@ class Crawler extends BaseCrawler implements CrawlerInterface
 {
 
 	/**
-	 * [$selectors description]
-	 * @var [type]
+	 * Selectors to crawler
+	 * @var array
 	 */
 	private $selectors = [];
 
 	/**
-	 * [__construct description]
-	 * @param [type] $html      [description]
-	 * @param array  $selectors [description]
+	 * Get selectors and initialize crawler in HTML
+	 * @param string $html      
+	 * @param array  $selectors
+	 * @return void
 	 */
 	public function __construct($html, $selectors)
 	{
