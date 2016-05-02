@@ -61,7 +61,7 @@ class Curl
 
 	/**
 	 * POST Params
-	 * @return object
+	 * @return Curl
 	 */
 	public function post(array $fields)
 	{
@@ -91,7 +91,7 @@ class Curl
 
 	/**
 	 * Close connection
-	 * @return object
+	 * @return Curl
 	 */
 	public function close()
 	{

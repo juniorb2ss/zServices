@@ -62,7 +62,7 @@ class Crawler extends BaseCrawler implements CrawlerInterface
 				if ($node->count()) {
 					$scrapped[$name] = $this->clearString($node->text());
 				}
-			}elseif (is_array($selector)) {
+			} elseif (is_array($selector)) {
 				foreach ($selector as $selector => $repeat) {
 					$node = $this->scrap($selector);
 					if ($node->count()) {

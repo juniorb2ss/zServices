@@ -5,9 +5,6 @@ use zServices\ReceitaFederal\Services\Portais\AN\Crawler;
 use zServices\Miscellany\Exceptions\NoServiceCall;
 use zServices\Miscellany\Exceptions\NoCaptchaResponse;
 use zServices\Miscellany\Exceptions\NoServiceResponse;
-use zServices\Miscellany\Exceptions\ImageNotFound;
-use zServices\Miscellany\Exceptions\InvalidInputs;
-use zServices\Miscellany\Exceptions\InvalidCaptcha;
 use zServices\Miscellany\ClientHttp;
 use zServices\Miscellany\Curl;
 
@@ -64,7 +61,7 @@ class Search implements SearchInterface
 	 * para os método como cookie e captcha prepararem suas informações
 	 * 
 	 * @param  array $configurations  @ref zServices\Sintegra\Services\Sintegra\{Service}\Service::$configurations
-	 * @return object
+	 * @return Search
 	 */
 	public function request($configurations)
 	{
@@ -191,7 +188,7 @@ class Search implements SearchInterface
 	 * @param  string  $cookie   Referencia: $service->cookie()
 	 * @param  string  $captcha  Texto do captcha resolvido pelo usuário
 	 * @param  array   $params   Parametros avulsos de requisição. Referência $service->params()
-	 * @return array   $data     Informações da entidade no serviço.
+	 * @return Crawler   $data     Informações da entidade no serviço.
 	 */
 	public function getData($document, $cookie, $captcha, $params, $configurations)
 	{

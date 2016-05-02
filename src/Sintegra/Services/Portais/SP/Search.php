@@ -62,7 +62,7 @@ class Search implements SearchInterface
 	 * para os método como cookie e captcha prepararem suas informações
 	 * 
 	 * @param  array $configurations  @ref zServices\Sintegra\Services\Sintegra\{Service}\Service::$configurations
-	 * @return object
+	 * @return Search
 	 */
 	public function request($configurations)
 	{
@@ -113,7 +113,7 @@ class Search implements SearchInterface
 						array_get($this->configurations, 'selectors.paramBot')
 					);
 
-		if(!$paramBot->count()){
+		if (!$paramBot->count()) {
 			throw new ImageNotFound("Impossible to crawler parambot from response", 1);
 		}
 
@@ -135,13 +135,13 @@ class Search implements SearchInterface
 						CURLOPT_HTTPHEADER => array(
 							"Pragma: no-cache",
 							"Origin: " . $this->configurations['base'],
-							"Host: ". array_get($this->configurations, 'headers.Host'),
+							"Host: " . array_get($this->configurations, 'headers.Host'),
 							"User-Agent: Mozilla/5.0 (Windows NT 6.1; rv:32.0) Gecko/20100101 Firefox/32.0",
 							"Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
 							"Accept-Language: pt-BR,pt;q=0.8,en-US;q=0.5,en;q=0.3",
 							"Accept-Encoding: gzip, deflate",
 							"Referer: " . $this->configurations['captcha'],
-							"Cookie: flag=1; ". $this->cookie,
+							"Cookie: flag=1; " . $this->cookie,
 							"Connection: keep-alive"
 						),
 						CURLOPT_RETURNTRANSFER => true,
@@ -160,7 +160,7 @@ class Search implements SearchInterface
 		$this->captcha = $curl->response();
 
 		// é uma imagem o retorno?
-		if(@imagecreatefromstring($this->captcha) == false)
+		if (@imagecreatefromstring($this->captcha) == false)
 		{
 			throw new NoCaptchaResponse('Não foi possível capturar o captcha');
 		}
@@ -207,7 +207,7 @@ class Search implements SearchInterface
 	 * @param  string  $cookie   Referencia: $service->cookie()
 	 * @param  string  $captcha  Texto do captcha resolvido pelo usuário
 	 * @param  array   $params   Parametros avulsos de requisição. Referência $service->params()
-	 * @return array   $data     Informações da entidade no serviço.
+	 * @return Crawler   $data     Informações da entidade no serviço.
 	 */
 	public function getData($document, $cookie, $captcha, $params, $configurations)
 	{
@@ -239,7 +239,7 @@ class Search implements SearchInterface
 					"Accept-Language: pt-BR,pt;q=0.8,en-US;q=0.6,en;q=0.4,es;q=0.2",
 					"Accept-Encoding: gzip, deflate",
 					"Referer: http://pfeserv1.fazenda.sp.gov.br/sintegrapfe/consultaSintegraServlet",
-					"Cookie: flag=1; ". $cookie,
+					"Cookie: flag=1; " . $cookie,
 					"Connection: keep-alive"
 				),
 				CURLOPT_RETURNTRANSFER  => 1,
@@ -258,7 +258,7 @@ class Search implements SearchInterface
 		// vamos capturar retorno, que deverá ser o HTML para scrapping
 		$html = $curl->response();
 
-		if(empty($html)) {
+		if (empty($html)) {
 			throw new NoServiceResponse('No response from service', 99);
 		}
 
