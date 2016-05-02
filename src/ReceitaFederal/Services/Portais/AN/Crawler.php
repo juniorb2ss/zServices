@@ -44,7 +44,7 @@ class Crawler extends BaseCrawler implements CrawlerInterface
         if($node->count()){
              throw new ErrorFoundData( $this->clearString($node->text()), 1);
         }
-
+        
         // CNPJ informado é válido?
         if($this->filter('#imgCaptcha')->count()){
             throw new InvalidCaptcha('Captcha inválido', 99);
