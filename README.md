@@ -75,8 +75,9 @@ O portal do sintega de SP além do captcha possui um valor no formulário com no
 O método `$search->params()` devolve um array com os inputs que são necessários devolver, que no caso do sintegra de sp é apenas `paramBot`. Este valor deverá ser inserido em seu formulário e devolvido como array associado na requisição das informações da entidade.
 
 ### Retornos
+Imagem de exemplo com as informações de retorno do serviço.
 #### Receita Federal
-Em breve
+![Retorno](https://camo.githubusercontent.com/50a04fb56500e16b07deb7afceeccb16bfc3809a/687474703a2f2f7333322e706f7374696d672e6f72672f7236306775726467352f53637265656e73686f745f66726f6d5f323031365f30345f32385f31385f34335f31332e706e67)
 #### Sintegra SP
 ![Retorno](https://uploaddeimagens.com.br/images/000/612/350/original/Screenshot_from_2016-05-01_16-51-52.png?1462132324)
 
