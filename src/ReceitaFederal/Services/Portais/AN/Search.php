@@ -119,13 +119,13 @@ class Search implements SearchInterface
 						CURLOPT_HTTPHEADER => array(
 							"Pragma: no-cache",
 							"Origin: " . $this->configurations['base'],
-							"Host: ". array_get($this->configurations, 'headers.Host'),
+							"Host: " . array_get($this->configurations, 'headers.Host'),
 							"User-Agent: Mozilla/5.0 (Windows NT 6.1; rv:32.0) Gecko/20100101 Firefox/32.0",
 							"Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
 							"Accept-Language: pt-BR,pt;q=0.8,en-US;q=0.5,en;q=0.3",
 							"Accept-Encoding: gzip, deflate",
 							"Referer: " . $this->configurations['home'],
-							"Cookie: flag=1; ". $this->cookie,
+							"Cookie: flag=1; " . $this->cookie,
 							"Connection: keep-alive"
 						),
 						CURLOPT_RETURNTRANSFER => true,
@@ -144,7 +144,7 @@ class Search implements SearchInterface
 		$this->captcha = $curl->response();
 
 		// é uma imagem o retorno?
-		if(@imagecreatefromstring($this->captcha) == false)
+		if (@imagecreatefromstring($this->captcha) == false)
 		{
 			throw new NoCaptchaResponse('Não foi possível capturar o captcha');
 		}
@@ -218,13 +218,13 @@ class Search implements SearchInterface
 				 CURLOPT_HTTPHEADER => array(
 					"Pragma: no-cache",
 					"Origin: " . $this->configurations['base'],
-					"Host: ". array_get($configurations, 'headers.Host'),
+					"Host: " . array_get($configurations, 'headers.Host'),
 					"User-Agent: Mozilla/5.0 (Windows NT 6.1; rv:32.0) Gecko/20100101 Firefox/32.0",
 					"Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
 					"Accept-Language: pt-BR,pt;q=0.8,en-US;q=0.5,en;q=0.3",
 					"Accept-Encoding: gzip, deflate",
-					"Referer: " . $this->configurations['home'] .'?cnpj='. $document,
-					"Cookie: flag=1; ". $cookie,
+					"Referer: " . $this->configurations['home'] . '?cnpj=' . $document,
+					"Cookie: flag=1; " . $cookie,
 					"Connection: keep-alive"
 				),
 				CURLOPT_RETURNTRANSFER  => 1,
@@ -243,7 +243,7 @@ class Search implements SearchInterface
 		// vamos capturar retorno, que deverá ser o HTML para scrapping
 		$html = $curl->response();
 
-		if(empty($html)) {
+		if (empty($html)) {
 			throw new NoServiceResponse('No response from service', 99);
 		}
 

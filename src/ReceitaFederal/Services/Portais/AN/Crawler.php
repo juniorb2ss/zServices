@@ -33,11 +33,11 @@ class Crawler extends BaseCrawler implements CrawlerInterface
 	/**
 	 * Verifica antes de fazer o crawler se possui erros
 	 * na requisição
-	 * @return boolean 
+	 * @return boolean|null 
 	 */
 	public function hasError()
 	{
-		if(count( $this->selectors) == 0) {
+		if (count($this->selectors) == 0) {
 			throw new NoSelectorsConfigured("NoSelectorsConfigured", 1);
 		}
 
@@ -45,12 +45,12 @@ class Crawler extends BaseCrawler implements CrawlerInterface
 		// é página de erro da receita federal
 		$node = $this->filter($this->selectors['error']);
 
-		if($node->count()){
-			 throw new ErrorFoundData( $this->clearString($node->text()), 1);
+		if ($node->count()) {
+			 throw new ErrorFoundData($this->clearString($node->text()), 1);
 		}
         
 		// CNPJ informado é válido?
-		if($this->filter('#imgCaptcha')->count()){
+		if ($this->filter('#imgCaptcha')->count()) {
 			throw new InvalidCaptcha('Captcha inválido', 99);
 		}
 	}
@@ -67,16 +67,16 @@ class Crawler extends BaseCrawler implements CrawlerInterface
 		$this->hasError();
 
 		foreach ($this->selectors as $name => $selector) {
-			if(is_string($selector)){
+			if (is_string($selector)) {
 				$node = $this->scrap($selector);
 
-				if($node->count()){
+				if ($node->count()) {
 					$scrapped[$name] = $this->clearString($node->text());
 				}
-			}elseif(is_array($selector)){
+			}elseif (is_array($selector)) {
 				foreach ($selector as $selector => $repeat) {
 					$node = $this->scrap($selector);
-					if($node->count()){
+					if ($node->count()) {
 						foreach ($node->filter($repeat) as $loop)
 						{
 							$scrapped[$name][] = $this->clearString($loop->nodeValue);
