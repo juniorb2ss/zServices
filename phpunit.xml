@@ -22,5 +22,11 @@
         <whitelist processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">./src</directory>
         </whitelist>
+        <blacklist>
+            <file>src/Laravel/zServiceProvider.php</file>
+            <file>src/Laravel/zServiceFacade.php</file>
+            <file>src/Miscellany/Curl.php</file>
+        </blacklist>
+
     </filter>
 </phpunit>

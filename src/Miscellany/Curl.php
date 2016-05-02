@@ -65,10 +65,20 @@ class Curl
      */
     public function post(array $fields)
     {
-        $curl = curl_setopt($this->instance, CURLOPT_POST, count($fields));
-        $curl = curl_setopt($this->instance, CURLOPT_POSTFIELDS, http_build_query($fields));
+        $this->option(CURLOPT_POST, count($fields));
+        $this->option(CURLOPT_POSTFIELDS, http_build_query($fields));
 
         return $this;
+    }
+
+    /**
+     * Set option in cURL
+     * @param  mix $option 
+     * @param  mix $value 
+     */
+    public function option($option, $value)
+    {
+        curl_setopt($this->instance, $option, $value);
     }
 
     /**

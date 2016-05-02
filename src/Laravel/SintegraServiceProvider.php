@@ -1,1 +1,0 @@
-SintegraServiceProvider.php
