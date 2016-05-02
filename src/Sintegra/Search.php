@@ -24,6 +24,7 @@ class Search
 
 	/**
 	 * [service description]
+	 * @param string $service
 	 * @return [type] [description]
 	 */
 	public function service($service)

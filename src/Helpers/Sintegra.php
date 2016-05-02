@@ -31,9 +31,9 @@ if (!function_exists('sintegra'))
 		$search->request();
 
 		return  [
-            'cookie' => $search->cookie(),
-            'image'  => $search->captcha(),
-            'paramBot' => $search->params()['parambot']
-        ];
+			'cookie' => $search->cookie(),
+			'image'  => $search->captcha(),
+			'paramBot' => $search->params()['parambot']
+		];
 	}
 }
