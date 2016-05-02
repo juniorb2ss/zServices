@@ -9,5 +9,8 @@ php:
 before_script:
   - travis_retry composer self-update
   - travis_retry composer install --prefer-source --no-interaction --dev
+addons:
+  code_climate:
+    repo_token: 9b48b0fdbc8ced85ef6a17e924010d5931cad886ca4346b7167378673b9719e3
 
 script: phpunit
