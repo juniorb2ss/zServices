@@ -1,0 +1,20 @@
+---
+engines:
+  duplication:
+    enabled: true
+    exclude_fingerprints:
+    - e597839b2e76ce3b6b1a0a3fe948781c
+    - 23a4e375d72b5e1da90c48ab63dfdd71
+    - 92f7af3e76cb3a5370d22eecab93f7e7
+    config:
+      languages:
+      - php
+  fixme:
+    enabled: true
+  phpmd:
+    enabled: true
+ratings:
+  paths:
+  - "**.php"
+exclude_paths:
+- tests/
