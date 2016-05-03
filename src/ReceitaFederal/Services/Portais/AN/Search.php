@@ -55,6 +55,12 @@ class Search implements SearchInterface {
 	private $params = [];
 
 	/**
+	 * decaptcher instance
+	 * @var \Captcha\Interfaces\ServiceInterface
+	 */
+	private $decaptcher;
+
+	/**
 	 * Antes de chamar o cookie e o captcha, é preciso efetuar uma requisição
 	 * primária no serviço. Capturando tais informações.
 	 * Este método deverá fazer essa requisição, armazenando o request
