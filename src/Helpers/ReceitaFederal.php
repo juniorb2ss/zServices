@@ -4,6 +4,7 @@ if (!function_exists('receitafederal'))
 {
 	/**
 	 * Helper retorna informações da Receita Federal
+	 * @SuppressWarnings(PHPMD)
 	 * @param  integer $document CNPJ
 	 * @param  string $cookie   cookie request
 	 * @param  string $captcha  Captcha resolvido

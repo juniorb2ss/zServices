@@ -3,6 +3,7 @@ if (!function_exists('sintegra'))
 {
 	/**
 	 * Helper retorna informações do sintegra
+	 * @SuppressWarnings(PHPMD)
 	 * @param  integer $document CNPJ or IE
 	 * @param  string $cookie   cookie request
 	 * @param  string $captcha  Captcha resolvido

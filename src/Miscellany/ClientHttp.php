@@ -34,6 +34,7 @@ class ClientHttp extends BaseClient
 
 	/**
 	 * Request to URL
+	 * @SuppressWarnings(PHPMD)
 	 * @param  string  $method        
 	 * @param  string  $url           
 	 * @param  array   $parameters    
