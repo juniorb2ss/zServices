@@ -1,19 +1,19 @@
 <?php namespace zServices\Sintegra\Services\Portais\SP;
 
-use zServices\Miscellany\Interfaces\SearchInterface;
-use zServices\Sintegra\Services\Portais\SP\Crawler;
-use zServices\Miscellany\Exceptions\NoServiceCall;
-use zServices\Miscellany\Exceptions\NoCaptchaResponse;
-use zServices\Miscellany\Exceptions\NoServiceResponse;
-use zServices\Miscellany\Exceptions\ImageNotFound;
+use Captcha\Interfaces\ServiceInterface;
 use zServices\Miscellany\ClientHttp;
 use zServices\Miscellany\Curl;
+use zServices\Miscellany\Exceptions\ImageNotFound;
+use zServices\Miscellany\Exceptions\NoCaptchaResponse;
+use zServices\Miscellany\Exceptions\NoServiceCall;
+use zServices\Miscellany\Exceptions\NoServiceResponse;
+use zServices\Miscellany\Interfaces\SearchInterface;
+use zServices\Sintegra\Services\Portais\SP\Crawler;
 
 /**
-* 
-*/
-class Search implements SearchInterface
-{	
+ *
+ */
+class Search implements SearchInterface {
 	/**
 	 * Armazena a instãncia atual do request no serviço
 	 * @var object
@@ -56,16 +56,21 @@ class Search implements SearchInterface
 	private $params = [];
 
 	/**
+	 * decaptcher instance
+	 * @var \Captcha\Interfaces\ServiceInterface
+	 */
+	private $decaptcher;
+
+	/**
 	 * Antes de chamar o cookie e o captcha, é preciso efetuar uma requisição
 	 * primária no serviço. Capturando tais informações.
 	 * Este método deverá fazer essa requisição, armazenando o request
 	 * para os método como cookie e captcha prepararem suas informações
-	 * 
+	 *
 	 * @param  array $configurations  @ref zServices\Sintegra\Services\Sintegra\{Service}\Service::$configurations
 	 * @return Search
 	 */
-	public function request($configurations)
-	{
+	public function request($configurations) {
 		$this->configurations = $configurations;
 
 		// instancia o client http
@@ -84,10 +89,9 @@ class Search implements SearchInterface
 	 * Verifica se existe existencia de request
 	 * @return boolean
 	 */
-	private function hasRequested()
-	{
+	private function hasRequested() {
 		if (!$this->instanceResponse) {
-			throw new NoServiceCall("No request from this service, please call first method request", 1);			
+			throw new NoServiceCall("No request from this service, please call first method request", 1);
 		}
 
 		return true;
@@ -97,21 +101,20 @@ class Search implements SearchInterface
 	 * Retorna o captcha do serviço para o usuário
 	 * @return string base64_image
 	 */
-	public function getCaptcha()
-	{ 
+	public function getCaptcha() {
 		$this->hasRequested();
 
 		$imageSrc = $this->instanceResponse->filter(
-						array_get($this->configurations, 'selectors.image')
-					);
+			array_get($this->configurations, 'selectors.image')
+		);
 
 		if (!$imageSrc->count()) {
 			throw new ImageNotFound("Impossible to crawler image from response", 1);
 		}
 
 		$paramBot = $this->instanceResponse->filter(
-						array_get($this->configurations, 'selectors.paramBot')
-					);
+			array_get($this->configurations, 'selectors.paramBot')
+		);
 
 		if (!$paramBot->count()) {
 			throw new ImageNotFound("Impossible to crawler parambot from response", 1);
@@ -131,25 +134,25 @@ class Search implements SearchInterface
 
 		// headers da requisição
 		$curl->options([
-						CURLOPT_COOKIEJAR => 'cookiejar',
-						CURLOPT_HTTPHEADER => array(
-							"Pragma: no-cache",
-							"Origin: " . $this->configurations['base'],
-							"Host: " . array_get($this->configurations, 'headers.Host'),
-							"User-Agent: Mozilla/5.0 (Windows NT 6.1; rv:32.0) Gecko/20100101 Firefox/32.0",
-							"Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-							"Accept-Language: pt-BR,pt;q=0.8,en-US;q=0.5,en;q=0.3",
-							"Accept-Encoding: gzip, deflate",
-							"Referer: " . $this->configurations['captcha'],
-							"Cookie: flag=1; " . $this->cookie,
-							"Connection: keep-alive"
-						),
-						CURLOPT_RETURNTRANSFER => true,
-						CURLOPT_FOLLOWLOCATION => 1,
-						CURLOPT_BINARYTRANSFER => TRUE,
-						CURLOPT_CONNECTTIMEOUT => 10,
-						CURLOPT_TIMEOUT => 10,
-				]);
+			CURLOPT_COOKIEJAR => 'cookiejar',
+			CURLOPT_HTTPHEADER => array(
+				"Pragma: no-cache",
+				"Origin: " . $this->configurations['base'],
+				"Host: " . array_get($this->configurations, 'headers.Host'),
+				"User-Agent: Mozilla/5.0 (Windows NT 6.1; rv:32.0) Gecko/20100101 Firefox/32.0",
+				"Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+				"Accept-Language: pt-BR,pt;q=0.8,en-US;q=0.5,en;q=0.3",
+				"Accept-Encoding: gzip, deflate",
+				"Referer: " . $this->configurations['captcha'],
+				"Cookie: flag=1; " . $this->cookie,
+				"Connection: keep-alive",
+			),
+			CURLOPT_RETURNTRANSFER => true,
+			CURLOPT_FOLLOWLOCATION => 1,
+			CURLOPT_BINARYTRANSFER => TRUE,
+			CURLOPT_CONNECTTIMEOUT => 10,
+			CURLOPT_TIMEOUT => 10,
+		]);
 
 		// executa o curl, logo após fechando a conexão
 		$curl->exec();
@@ -160,8 +163,7 @@ class Search implements SearchInterface
 		$this->captcha = $curl->response();
 
 		// é uma imagem o retorno?
-		if (@imagecreatefromstring($this->captcha) == false)
-		{
+		if (@imagecreatefromstring($this->captcha) == false) {
 			throw new NoCaptchaResponse('Não foi possível capturar o captcha');
 		}
 
@@ -178,8 +180,7 @@ class Search implements SearchInterface
 	 * próximas requisições
 	 * @return string $cookie
 	 */
-	public function getCookie()
-	{ 
+	public function getCookie() {
 		$this->hasRequested();
 
 		return $this->cookie;
@@ -194,23 +195,52 @@ class Search implements SearchInterface
 	 * Este método irá buscar no crawler estes parametros avulsos.
 	 * @return array $params
 	 */
-	public function getParams()
-	{ 
+	public function getParams() {
 		$this->hasRequested();
 
 		return $this->params;
 	}
 
 	/**
+	 * ServiceInterface from decaptcher
+	 *
+	 * Impoe o serviço a ser utilizado para efetuar a quebra do captcha
+	 * @param  ServiceInterface $decaptcher
+	 * @return Search
+	 */
+	public function decaptcher(ServiceInterface $decaptcher) {
+		$this->decaptcher = $decaptcher;
+
+		return $this;
+	}
+
+	/**
+	 * Implement decaptcher
+	 *
+	 * @return string
+	 */
+	private function resolveCaptcha($captchImageOrtxt) {
+		// auto decaptcher
+		if ($this->decaptcher) {
+			$captchImageOrtxt = $this->decaptcher->upload($captchImageOrtxt);
+		}
+
+		return $captchImageOrtxt;
+	}
+
+	/**
 	 * Retorna as informações da empresa/pessoa consultada.
 	 * @param  integer $document Documento de identificação da entidade
 	 * @param  string  $cookie   Referencia: $service->cookie()
-	 * @param  string  $captcha  Texto do captcha resolvido pelo usuário
+	 * @param  string  $captcha  Texto do captcha resolvido pelo usuário ou base64
 	 * @param  array   $params   Parametros avulsos de requisição. Referência $service->params()
 	 * @return Crawler   $data     Informações da entidade no serviço.
 	 */
-	public function getData($document, $cookie, $captcha, $params, $configurations)
-	{
+	public function getData($document, $cookie, $captcha, $params, $configurations) {
+
+		// resolve captcha
+		$captcha = $this->resolveCaptcha($captcha);
+
 		// prepara o form
 		$postParams = [
 			'cnpj' => $document, // apenas números
@@ -219,7 +249,7 @@ class Search implements SearchInterface
 			'hidFlag' => '1',
 			'ie' => '',
 			'servico' => 'cnpj',
-			'paramBot' => $params['parambot']
+			'paramBot' => $params['parambot'],
 		];
 
 		// inicia o cURL
@@ -240,9 +270,9 @@ class Search implements SearchInterface
 					"Accept-Encoding: gzip, deflate",
 					"Referer: http://pfeserv1.fazenda.sp.gov.br/sintegrapfe/consultaSintegraServlet",
 					"Cookie: flag=1; " . $cookie,
-					"Connection: keep-alive"
+					"Connection: keep-alive",
 				),
-				CURLOPT_RETURNTRANSFER  => 1,
+				CURLOPT_RETURNTRANSFER => 1,
 				CURLOPT_BINARYTRANSFER => 1,
 				CURLOPT_FOLLOWLOCATION => 1,
 			)

@@ -23,6 +23,31 @@ Este pacote foi desenvolvido com o intuito de facilidade consultas através de E
 
 Toda implementação será de sua responsabilidade.
 
+### Quebra Automática de Captcha
+Foi desenvolvido um pacote que facilita na resolução automática do captcha, faça o uso de sua responsabilidade.
+
+Este pacote já possui referencia para tal.
+
+Exemplo:
+
+```php
+use zServices\ReceitaFederal\Search as ReceitaFederal;
+
+$service = (new ReceitaFederal)->service(); 
+$request = $service->request(); // inicia requisição na receita federal
+
+$cookie = $request->cookie();
+$captcha = $request->captcha();
+
+$document = '54787138000101' // CNPJ
+$decaptcher = (new \Captcha\DeathByCaptcha\Service)->credentials('yourLogin', 'yourPassword');
+$service->decaptcher($decaptcher); // Passa o serviço que será usado para quebra do captcha
+$array = $search->data($cnpj, $cookie, $captcha, [])->scraping(); // após alguns segundos ele retorna array com as informações da entidade.
+```
+
+O pacote por enquanto apenas possui implementação do `DeathByCaptcha`, que é um serviço pago, porém valor muito baixo por pacote de captcha resolvido.
+Visite o site e adquire um plano.
+
 ### Version Stable
 1.1.1
 

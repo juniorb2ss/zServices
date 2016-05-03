@@ -1,7 +1,6 @@
 <?php
 
-if (!function_exists('receitafederal'))
-{
+if (!function_exists('receitafederal')) {
 	/**
 	 * Helper retorna informações da Receita Federal
 	 * @SuppressWarnings(PHPMD)
@@ -10,8 +9,7 @@ if (!function_exists('receitafederal'))
 	 * @param  string $captcha  Captcha resolvido
 	 * @return array
 	 */
-	function receitaFederal($document = false, $cookie = false, $captcha = false)
-	{	
+	function receitaFederal($document = false, $cookie = false, $captcha = false) {
 		/**
 		 * Inicia a classe
 		 * @var object \zServices\ReceitaFederal\Services\Portais\{$portal}\Service
@@ -31,9 +29,9 @@ if (!function_exists('receitafederal'))
 		// com cookie e captcha
 		$search->request();
 
-		return  [
+		return [
 			'cookie' => $search->cookie(),
-			'image'  => $search->captcha()
+			'image' => $search->captcha(),
 		];
 	}
 }

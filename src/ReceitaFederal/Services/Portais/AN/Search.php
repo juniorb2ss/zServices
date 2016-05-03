@@ -1,18 +1,18 @@
 <?php namespace zServices\ReceitaFederal\Services\Portais\AN;
 
-use zServices\Miscellany\Interfaces\SearchInterface;
-use zServices\ReceitaFederal\Services\Portais\AN\Crawler;
-use zServices\Miscellany\Exceptions\NoServiceCall;
-use zServices\Miscellany\Exceptions\NoCaptchaResponse;
-use zServices\Miscellany\Exceptions\NoServiceResponse;
+use Captcha\Interfaces\ServiceInterface;
 use zServices\Miscellany\ClientHttp;
 use zServices\Miscellany\Curl;
+use zServices\Miscellany\Exceptions\NoCaptchaResponse;
+use zServices\Miscellany\Exceptions\NoServiceCall;
+use zServices\Miscellany\Exceptions\NoServiceResponse;
+use zServices\Miscellany\Interfaces\SearchInterface;
+use zServices\ReceitaFederal\Services\Portais\AN\Crawler;
 
 /**
-* 
-*/
-class Search implements SearchInterface
-{	
+ *
+ */
+class Search implements SearchInterface {
 	/**
 	 * Armazena a instãncia atual do request no serviço
 	 * @var object
@@ -59,12 +59,11 @@ class Search implements SearchInterface
 	 * primária no serviço. Capturando tais informações.
 	 * Este método deverá fazer essa requisição, armazenando o request
 	 * para os método como cookie e captcha prepararem suas informações
-	 * 
+	 *
 	 * @param  array $configurations  @ref zServices\Sintegra\Services\Sintegra\{Service}\Service::$configurations
 	 * @return Search
 	 */
-	public function request($configurations)
-	{
+	public function request($configurations) {
 		$this->configurations = $configurations;
 
 		// instancia o client http
@@ -83,10 +82,9 @@ class Search implements SearchInterface
 	 * Verifica se existe existencia de request
 	 * @return boolean
 	 */
-	private function hasRequested()
-	{
+	private function hasRequested() {
 		if (!$this->instanceResponse) {
-			throw new NoServiceCall("No request from this service, please call first method request", 1);			
+			throw new NoServiceCall("No request from this service, please call first method request", 1);
 		}
 
 		return true;
@@ -96,8 +94,7 @@ class Search implements SearchInterface
 	 * Retorna o captcha do serviço para o usuário
 	 * @return string base64_image
 	 */
-	public function getCaptcha()
-	{ 
+	public function getCaptcha() {
 		$this->hasRequested();
 
 		// Inicia instancia do cURL
@@ -112,25 +109,25 @@ class Search implements SearchInterface
 
 		// headers da requisição
 		$curl->options([
-						CURLOPT_COOKIEJAR => 'cookiejar',
-						CURLOPT_HTTPHEADER => array(
-							"Pragma: no-cache",
-							"Origin: " . $this->configurations['base'],
-							"Host: " . array_get($this->configurations, 'headers.Host'),
-							"User-Agent: Mozilla/5.0 (Windows NT 6.1; rv:32.0) Gecko/20100101 Firefox/32.0",
-							"Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-							"Accept-Language: pt-BR,pt;q=0.8,en-US;q=0.5,en;q=0.3",
-							"Accept-Encoding: gzip, deflate",
-							"Referer: " . $this->configurations['home'],
-							"Cookie: flag=1; " . $this->cookie,
-							"Connection: keep-alive"
-						),
-						CURLOPT_RETURNTRANSFER => true,
-						CURLOPT_FOLLOWLOCATION => 1,
-						CURLOPT_BINARYTRANSFER => TRUE,
-						CURLOPT_CONNECTTIMEOUT => 10,
-						CURLOPT_TIMEOUT => 10,
-				]);
+			CURLOPT_COOKIEJAR => 'cookiejar',
+			CURLOPT_HTTPHEADER => array(
+				"Pragma: no-cache",
+				"Origin: " . $this->configurations['base'],
+				"Host: " . array_get($this->configurations, 'headers.Host'),
+				"User-Agent: Mozilla/5.0 (Windows NT 6.1; rv:32.0) Gecko/20100101 Firefox/32.0",
+				"Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+				"Accept-Language: pt-BR,pt;q=0.8,en-US;q=0.5,en;q=0.3",
+				"Accept-Encoding: gzip, deflate",
+				"Referer: " . $this->configurations['home'],
+				"Cookie: flag=1; " . $this->cookie,
+				"Connection: keep-alive",
+			),
+			CURLOPT_RETURNTRANSFER => true,
+			CURLOPT_FOLLOWLOCATION => 1,
+			CURLOPT_BINARYTRANSFER => TRUE,
+			CURLOPT_CONNECTTIMEOUT => 10,
+			CURLOPT_TIMEOUT => 10,
+		]);
 
 		// executa o curl, logo após fechando a conexão
 		$curl->exec();
@@ -141,8 +138,7 @@ class Search implements SearchInterface
 		$this->captcha = $curl->response();
 
 		// é uma imagem o retorno?
-		if (@imagecreatefromstring($this->captcha) == false)
-		{
+		if (@imagecreatefromstring($this->captcha) == false) {
 			throw new NoCaptchaResponse('Não foi possível capturar o captcha');
 		}
 
@@ -159,8 +155,7 @@ class Search implements SearchInterface
 	 * próximas requisições
 	 * @return string $cookie
 	 */
-	public function getCookie()
-	{ 
+	public function getCookie() {
 		$this->hasRequested();
 
 		return $this->cookie;
@@ -175,11 +170,37 @@ class Search implements SearchInterface
 	 * Este método irá buscar no crawler estes parametros avulsos.
 	 * @return array $params
 	 */
-	public function getParams()
-	{ 
+	public function getParams() {
 		$this->hasRequested();
 
 		return $this->params;
+	}
+
+	/**
+	 * ServiceInterface from decaptcher
+	 *
+	 * Impoe o serviço a ser utilizado para efetuar a quebra do captcha
+	 * @param  ServiceInterface $decaptcher
+	 * @return Search
+	 */
+	public function decaptcher(ServiceInterface $decaptcher) {
+		$this->decaptcher = $decaptcher;
+
+		return $this;
+	}
+
+	/**
+	 * Implement decaptcher
+	 *
+	 * @return string
+	 */
+	private function resolveCaptcha($captchImageOrtxt) {
+		// auto decaptcher
+		if ($this->decaptcher) {
+			$captchImageOrtxt = $this->decaptcher->upload($captchImageOrtxt);
+		}
+
+		return $captchImageOrtxt;
 	}
 
 	/**
@@ -190,15 +211,18 @@ class Search implements SearchInterface
 	 * @param  array   $params   Parametros avulsos de requisição. Referência $service->params()
 	 * @return Crawler   $data     Informações da entidade no serviço.
 	 */
-	public function getData($document, $cookie, $captcha, $params, $configurations)
-	{
+	public function getData($document, $cookie, $captcha, $params, $configurations) {
+
+		// resolve captcha
+		$captcha = $this->resolveCaptcha($captcha);
+
 		// prepara o form
 		$postParams = [
 			'origem' => 'comprovante',
 			'cnpj' => $document, // apenas números
 			'txtTexto_captcha_serpro_gov_br' => $captcha,
 			'submit1' => 'Consultar',
-			'search_type' => 'cnpj'
+			'search_type' => 'cnpj',
 		];
 
 		$postParams = array_merge($postParams, $params);
@@ -212,7 +236,7 @@ class Search implements SearchInterface
 		// define os headers para requisição curl.
 		$curl->options(
 			array(
-				 CURLOPT_HTTPHEADER => array(
+				CURLOPT_HTTPHEADER => array(
 					"Pragma: no-cache",
 					"Origin: " . $this->configurations['base'],
 					"Host: " . array_get($configurations, 'headers.Host'),
@@ -222,9 +246,9 @@ class Search implements SearchInterface
 					"Accept-Encoding: gzip, deflate",
 					"Referer: " . $this->configurations['home'] . '?cnpj=' . $document,
 					"Cookie: flag=1; " . $cookie,
-					"Connection: keep-alive"
+					"Connection: keep-alive",
 				),
-				CURLOPT_RETURNTRANSFER  => 1,
+				CURLOPT_RETURNTRANSFER => 1,
 				CURLOPT_BINARYTRANSFER => 1,
 				CURLOPT_FOLLOWLOCATION => 1,
 			)
