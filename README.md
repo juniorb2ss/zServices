@@ -49,7 +49,7 @@ O pacote por enquanto apenas possui implementação do `DeathByCaptcha`, que é 
 Visite o site e adquire um plano.
 
 ### Version Stable
-1.2.0
+1.2.1
 
 ### Instalação
 
