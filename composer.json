@@ -16,7 +16,8 @@
         "ext-gd": "*",
         "fabpot/goutte": "^3.1",
         "intervention/image": "^2.3",
-        "illuminate/support": "~4|~5"
+        "illuminate/support": "~4|~5",
+        "juniorb2ss/captcha": "dev-master"
     },
     "require-dev": {
        "codeclimate/php-test-reporter": "dev-master"
