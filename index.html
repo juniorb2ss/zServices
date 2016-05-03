@@ -56,9 +56,34 @@ o captcha é feito outra requisição, retornando informações do CNPJ.</p>
 <p>Toda implementação será de sua responsabilidade.</p>
 
 <h3>
+<a id="quebra-automática-de-captcha" class="anchor" href="#quebra-autom%C3%A1tica-de-captcha" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Quebra Automática de Captcha</h3>
+
+<p>Foi desenvolvido um pacote que facilita na resolução automática do captcha, faça o uso de sua responsabilidade.</p>
+
+<p>Este pacote já possui referencia para tal.</p>
+
+<p>Exemplo:</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">zServices\ReceitaFederal\Search</span> <span class="pl-k">as</span> <span class="pl-c1">ReceitaFederal</span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-smi">$service</span> <span class="pl-k">=</span> (<span class="pl-k">new</span> <span class="pl-c1">ReceitaFederal</span>)<span class="pl-k">-&gt;</span>service(); </span>
+<span class="pl-s1"><span class="pl-smi">$request</span> <span class="pl-k">=</span> <span class="pl-smi">$service</span><span class="pl-k">-&gt;</span>request(); <span class="pl-c">// inicia requisição na receita federal</span></span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-smi">$cookie</span> <span class="pl-k">=</span> <span class="pl-smi">$request</span><span class="pl-k">-&gt;</span>cookie();</span>
+<span class="pl-s1"><span class="pl-smi">$captcha</span> <span class="pl-k">=</span> <span class="pl-smi">$request</span><span class="pl-k">-&gt;</span>captcha();</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-smi">$document</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>54787138000101<span class="pl-pds">'</span></span> <span class="pl-c">// CNPJ</span></span>
+<span class="pl-s1"><span class="pl-smi">$decaptcher</span> <span class="pl-k">=</span> (<span class="pl-k">new</span> <span class="pl-c1">\Captcha\DeathByCaptcha\</span><span class="pl-c1">Service</span>)<span class="pl-k">-&gt;</span>credentials(<span class="pl-s"><span class="pl-pds">'</span>yourLogin<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>yourPassword<span class="pl-pds">'</span></span>);</span>
+<span class="pl-s1"><span class="pl-smi">$service</span><span class="pl-k">-&gt;</span>decaptcher(<span class="pl-smi">$decaptcher</span>); <span class="pl-c">// Passa o serviço que será usado para quebra do captcha</span></span>
+<span class="pl-s1"><span class="pl-smi">$array</span> <span class="pl-k">=</span> <span class="pl-smi">$search</span><span class="pl-k">-&gt;</span>data(<span class="pl-smi">$cnpj</span>, <span class="pl-smi">$cookie</span>, <span class="pl-smi">$captcha</span>, [])<span class="pl-k">-&gt;</span>scraping(); <span class="pl-c">// após alguns segundos ele retorna array com as informações da entidade.</span></span></pre></div>
+
+<p>O pacote por enquanto apenas possui implementação do <code>DeathByCaptcha</code>, que é um serviço pago, porém valor muito baixo por pacote de captcha resolvido.
+Visite o site e adquire um plano.</p>
+
+<h3>
 <a id="version-stable" class="anchor" href="#version-stable" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Version Stable</h3>
 
-<p>1.1.1</p>
+<p>1.2.1</p>
 
 <h3>
 <a id="instalação" class="anchor" href="#instala%C3%A7%C3%A3o" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Instalação</h3>
