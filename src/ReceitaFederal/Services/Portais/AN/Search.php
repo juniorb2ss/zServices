@@ -58,7 +58,7 @@ class Search implements SearchInterface {
 	 * decaptcher instance
 	 * @var \Captcha\Interfaces\ServiceInterface
 	 */
-	private $decaptcher;
+	public $decaptcher;
 
 	/**
 	 * Antes de chamar o cookie e o captcha, é preciso efetuar uma requisição
