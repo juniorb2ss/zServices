@@ -16,11 +16,13 @@
         "ext-gd": "*",
         "fabpot/goutte": "^3.1",
         "intervention/image": "^2.3",
-        "illuminate/support": "~4|~5",
         "juniorb2ss/captcha": "1.*"
     },
     "require-dev": {
        "codeclimate/php-test-reporter": "dev-master"
+    },
+    "suggest": {
+        "illuminate/support": "Case of Laravel framework"
     },
     "autoload": {
         "psr-4": {
