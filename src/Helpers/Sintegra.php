@@ -7,11 +7,11 @@ if (!function_exists('sintegra'))
 	 * @param  integer $document CNPJ or IE
 	 * @param  string $cookie   cookie request
 	 * @param  string $captcha  Captcha resolvido
-	 * @param  array $params   
+	 * @param  array $params
 	 * @return array
 	 */
 	function sintegra($portal = 'SP', $document = false, $cookie = false, $captcha = false, $params = [])
-	{	
+	{
 		/**
 		 * Inicia a classe
 		 * @var object \zServices\Sintegra\Services\Portais\{$portal}\Service

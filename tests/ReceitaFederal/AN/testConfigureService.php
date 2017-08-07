@@ -1,10 +1,13 @@
-<?php namespace tests\ReceitaFederal\AN;
+<?php
 
+namespace tests\ReceitaFederal\AN;
+
+use PHPUnit\Framework\TestCase;
 use zServices\ReceitaFederal\Search;
 use zServices\ReceitaFederal\Services\Portais\AN\Service as ServiceExpected;
 use zServices\Miscellany\Interfaces\ServiceInterface;
 
-class testService extends \PHPUnit_Framework_TestCase
+class testService extends TestCase
 {
     /**
      * @group receita-service

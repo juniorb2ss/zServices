@@ -1,11 +1,12 @@
 <?php namespace tests\ReceitaFederal\AN;
 
+use PHPUnit\Framework\TestCase;
 use zServices\ReceitaFederal\Search;
 use zServices\ReceitaFederal\Services\Portais\AN\Crawler;
 use zServices\ReceitaFederal\Services\Portais\AN\Service;
 
-class testCrawlerHtmlData extends \PHPUnit_Framework_TestCase
-{   
+class testCrawlerHtmlData extends TestCase
+{
     /**
      * @group receita-crawler
      */
@@ -31,7 +32,7 @@ class testCrawlerHtmlData extends \PHPUnit_Framework_TestCase
         $scraped = $crawler->scraping();
 
         $this->assertTrue(
-                (is_array($scraped) && count($scraped) > 0), 
+                (is_array($scraped) && count($scraped) > 0),
                 'Params returned not is valid array'
         );
 

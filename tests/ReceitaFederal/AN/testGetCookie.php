@@ -1,8 +1,11 @@
-<?php namespace tests\ReceitaFederal\AN;
+<?php
 
+namespace tests\ReceitaFederal\AN;
+
+use PHPUnit\Framework\TestCase;
 use zServices\ReceitaFederal\Search;
 
-class testGetCookie extends \PHPUnit_Framework_TestCase
+class testGetCookie extends TestCase
 {
 	/**
      * @group receita-request

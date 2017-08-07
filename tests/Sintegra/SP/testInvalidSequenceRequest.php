@@ -1,8 +1,11 @@
-<?php namespace tests\Sintegra\SP;
+<?php
 
+namespace tests\Sintegra\SP;
+
+use PHPUnit\Framework\TestCase;
 use zServices\Sintegra\Search;
 
-class testInvalidSequenceRequest extends \PHPUnit_Framework_TestCase
+class testInvalidSequenceRequest extends TestCase
 {
     /**
      * Testa a sequência de request da classe

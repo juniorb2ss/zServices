@@ -1,11 +1,14 @@
-<?php namespace tests\Sintegra\SP;
+<?php
 
+namespace tests\Sintegra\SP;
+
+use PHPUnit\Framework\TestCase;
 use zServices\Sintegra\Search;
 use zServices\Sintegra\Services\Portais\SP\Crawler;
 use zServices\Sintegra\Services\Portais\SP\Service;
 
-class testCrawlerHtmlData extends \PHPUnit_Framework_TestCase
-{   
+class testCrawlerHtmlData extends TestCase
+{
     /**
      * @group sintegra-crawler
      */

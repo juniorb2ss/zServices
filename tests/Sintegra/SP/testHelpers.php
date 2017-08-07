@@ -1,6 +1,10 @@
-<?php namespace tests\Sintegra\SP;
+<?php
 
-class testHelpers extends \PHPUnit_Framework_TestCase
+namespace tests\Sintegra\SP;
+
+use PHPUnit\Framework\TestCase;
+
+class testHelpers extends TestCase
 {
 
 	/**

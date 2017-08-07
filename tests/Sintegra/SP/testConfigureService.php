@@ -1,10 +1,13 @@
-<?php namespace tests\Sintegra\SP;
+<?php
 
+namespace tests\Sintegra\SP;
+
+use PHPUnit\Framework\TestCase;
 use zServices\Sintegra\Search;
 use zServices\Sintegra\Services\Portais\SP\Service as ServiceExpected;
 use zServices\Miscellany\Interfaces\ServiceInterface;
 
-class testService extends \PHPUnit_Framework_TestCase
+class testService extends TestCase
 {
     /**
      * @group sintegra-service
@@ -29,7 +32,7 @@ class testService extends \PHPUnit_Framework_TestCase
                     && array_has($service->configurations, 'selectors.image')
                     && array_has($service->configurations, 'selectors.data')
                     && array_has($service->configurations, 'headers')
-                ), 
+                ),
                 'Configurations on this service is invalid'
         );
     }

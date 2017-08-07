@@ -1,8 +1,11 @@
-<?php namespace tests\ReceitaFederal\AN;
+<?php
 
+namespace tests\ReceitaFederal\AN;
+
+use PHPUnit\Framework\TestCase;
 use zServices\ReceitaFederal\Search;
 
-class testInvalidCaptcha extends \PHPUnit_Framework_TestCase
+class testInvalidCaptcha extends TestCase
 {
     /**
      * Testa retorno de captcha inválido

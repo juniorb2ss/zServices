@@ -1,4 +1,6 @@
-<?php namespace zServices\Laravel;
+<?php
+
+namespace zServices\Laravel;
 
 use Illuminate\Support\Facades\Facade;
 

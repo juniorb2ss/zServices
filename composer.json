@@ -15,12 +15,15 @@
         "php": ">=5.5.9",
         "ext-gd": "*",
         "fabpot/goutte": "^3.1",
-        "intervention/image": "^2.3",
         "illuminate/support": "~4|~5",
-        "juniorb2ss/captcha": "1.*"
+        "intervention/image": "^2.3"
+    },
+    "suggest": {
+        "juniorb2ss/captcha": "Make captcha easy."
     },
     "require-dev": {
-       "codeclimate/php-test-reporter": "dev-master"
+        "codeclimate/php-test-reporter": "dev-master",
+        "phpunit/phpunit": "^6.3"
     },
     "autoload": {
         "psr-4": {

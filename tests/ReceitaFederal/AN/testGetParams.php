@@ -1,8 +1,11 @@
-<?php namespace tests\ReceitaFederal\AN;
+<?php
 
+namespace tests\ReceitaFederal\AN;
+
+use PHPUnit\Framework\TestCase;
 use zServices\ReceitaFederal\Search;
 
-class testGetParams extends \PHPUnit_Framework_TestCase
+class testGetParams extends TestCase
 {
     /**
      * @group receita-request
@@ -12,9 +15,9 @@ class testGetParams extends \PHPUnit_Framework_TestCase
     	$search = (new Search)->service()->request();
 
     	$paramsRequest = $search->params();
-    	
+
     	$this->assertTrue(
-	    		is_array($paramsRequest), 
+	    		is_array($paramsRequest),
 	    		'Params returned not is valid array'
 	    );
     }

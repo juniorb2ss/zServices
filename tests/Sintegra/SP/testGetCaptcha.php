@@ -1,8 +1,11 @@
-<?php namespace tests\Sintegra\SP;
+<?php
 
+namespace tests\Sintegra\SP;
+
+use PHPUnit\Framework\TestCase;
 use zServices\Sintegra\Search;
 
-class testGetCaptcha extends \PHPUnit_Framework_TestCase
+class testGetCaptcha extends TestCase
 {
 	/**
      * @group sintegra-request

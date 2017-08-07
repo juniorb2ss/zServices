@@ -1,6 +1,10 @@
-<?php namespace tests\ReceitaFederal\SP;
+<?php
 
-class testHelpers extends \PHPUnit_Framework_TestCase
+namespace tests\ReceitaFederal\SP;
+
+use PHPUnit\Framework\TestCase;
+
+class testHelpers extends TestCase
 {
 
 	/**

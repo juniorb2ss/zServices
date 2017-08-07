@@ -1,8 +1,11 @@
-<?php namespace tests\Sintegra\SP;
+<?php
 
+namespace tests\Sintegra\SP;
+
+use PHPUnit\Framework\TestCase;
 use zServices\Sintegra\Search;
 
-class testGetCookie extends \PHPUnit_Framework_TestCase
+class testGetCookie extends TestCase
 {
 	/**
      * @group sintegra-request
