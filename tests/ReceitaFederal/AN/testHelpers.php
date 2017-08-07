@@ -1,8 +1,8 @@
 <?php
 
-namespace tests\ReceitaFederal\SP;
+namespace zServices\Tests\ReceitaFederal\SP;
 
-use PHPUnit\Framework\TestCase;
+use zServices\Tests\TestCase;
 
 class testHelpers extends TestCase
 {

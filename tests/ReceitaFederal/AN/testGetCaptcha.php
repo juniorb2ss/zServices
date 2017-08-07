@@ -1,8 +1,8 @@
 <?php
 
-namespace tests\ReceitaFederal\AN;
+namespace zServices\Tests\ReceitaFederal\AN;
 
-use PHPUnit\Framework\TestCase;
+use zServices\Tests\TestCase;
 use zServices\ReceitaFederal\Search;
 
 class testGetCaptcha extends TestCase

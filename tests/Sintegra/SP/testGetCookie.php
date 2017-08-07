@@ -1,8 +1,8 @@
 <?php
 
-namespace tests\Sintegra\SP;
+namespace zServices\Tests\Sintegra\SP;
 
-use PHPUnit\Framework\TestCase;
+use zServices\Tests\TestCase;
 use zServices\Sintegra\Search;
 
 class testGetCookie extends TestCase

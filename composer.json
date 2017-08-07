@@ -23,7 +23,12 @@
     },
     "require-dev": {
         "codeclimate/php-test-reporter": "dev-master",
-        "phpunit/phpunit": "^6.3"
+        "phpunit/phpunit" : "~4.0||~5.0"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "zServices\\Tests\\": "tests"
+        }
     },
     "autoload": {
         "psr-4": {

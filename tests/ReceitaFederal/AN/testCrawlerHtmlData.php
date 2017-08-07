@@ -1,6 +1,8 @@
-<?php namespace tests\ReceitaFederal\AN;
+<?php
 
-use PHPUnit\Framework\TestCase;
+namespace zServices\Tests\ReceitaFederal\AN;
+
+use zServices\Tests\TestCase;
 use zServices\ReceitaFederal\Search;
 use zServices\ReceitaFederal\Services\Portais\AN\Crawler;
 use zServices\ReceitaFederal\Services\Portais\AN\Service;
