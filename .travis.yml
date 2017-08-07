@@ -14,4 +14,4 @@ before_script:
 addons:
   code_climate:
     repo_token: 9b48b0fdbc8ced85ef6a17e924010d5931cad886ca4346b7167378673b9719e3
-script: phpunit
+script: vendor/bin/phpunit
